@@ -14,7 +14,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:background="#FFFF88">
+        android:background="#FFCC00">
 
 
         <ImageView
@@ -28,9 +28,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            android:textSize="32sp"
+            android:text="ฉันต้องการ"
+            android:textColor="#663300"
+            android:textSize="42sp"
             android:textAlignment="center"
+            android:paddingTop="30dp"
             />
 
     </LinearLayout>
@@ -44,7 +46,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:background="#FFAA00">
+        android:background="#FF9900">
 
 
         <ImageView
@@ -56,9 +58,13 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
+            android:text="ฉันรู้สึก"
+            android:textColor="#663300"
+            android:textSize="42sp"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
             />
 
     </LinearLayout>
@@ -84,9 +90,13 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
+            android:text="พิมพ์ข้อความ"
+            android:textColor="#FFFFFF"
+            android:textSize="42sp"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
             />
 
     </LinearLayout>
@@ -100,7 +110,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:background="#CC88FF">
+        android:background="#996699">
 
 
         <ImageView
@@ -112,9 +122,13 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
+            android:text="คำที่ใช้บ่อย"
+            android:textColor="#FFFFFF"
+            android:textSize="42sp"
+            android:textAlignment="center"
+            android:paddingTop="30dp"
             />
 
     </LinearLayout>
