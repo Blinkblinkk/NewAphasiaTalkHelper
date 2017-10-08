@@ -10,6 +10,8 @@ import android.support.annotation.StyleRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 
@@ -18,6 +20,10 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
  */
 
 public class ItemImage extends FrameLayout {
+
+    ImageView imageView;
+    TextView textView;
+
     public ItemImage(@NonNull Context context) {
         super(context);
         init();
@@ -43,5 +49,11 @@ public class ItemImage extends FrameLayout {
     private void init (){
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(R.layout.view_item_image,this);
+        imageView = (ImageView) findViewById(R.id.item_image);
+        textView = (TextView) findViewById(R.id.item_text);
+    }
+
+    public void setItemText(String str){
+        textView.setText(str);
     }
 }

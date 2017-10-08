@@ -33,8 +33,8 @@
             android:text="ฉันต้องการ"
             android:textColor="#795548"
             android:textSize="42sp"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
             />
 
     </LinearLayout>
@@ -67,8 +67,8 @@
             android:text="ฉันรู้สึก"
             android:textColor="#795548"
             android:textSize="42sp"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
             />
 
     </LinearLayout>
@@ -101,8 +101,8 @@
             android:text="พิมพ์ข้อความ"
             android:textColor="#FFFFFF"
             android:textSize="42sp"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
             />
 
     </LinearLayout>
@@ -135,8 +135,8 @@
             android:text="คำที่ใช้บ่อย"
             android:textColor="#FFFFFF"
             android:textSize="42sp"
-            android:textAlignment="center"
-            android:paddingTop="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
             />
 
     </LinearLayout>
