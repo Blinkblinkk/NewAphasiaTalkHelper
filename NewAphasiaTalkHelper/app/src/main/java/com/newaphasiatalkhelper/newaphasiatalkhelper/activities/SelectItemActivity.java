@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,54 +19,59 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage;
 
 public class SelectItemActivity extends BaseActivity {
 
-    ListView lvTest;
+    RecyclerView rvtest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_select_item);
-        setContentView(R.layout.test_listview);
+        setContentView(R.layout.test_recycleview);
         //Callfunction
         initToolbar();
 
-        lvTest = (ListView) findViewById(R.id.lv_test);
+        rvtest = (RecyclerView) findViewById(R.id.rv_test);
+        rvtest.setLayoutManager(new LinearLayoutManager(this));
+        rvtest.setAdapter(new MyRecycleAdapter());
+    }
+    class MyRecycleAdapter extends RecyclerView.Adapter <MyRecycleAdapter.MyViewHolder>{
 
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,texts);
-        MyAdapter adapter = new MyAdapter(this);
+        String[] data = {"a", "b", "c", "d", "e","f", "g", "h", "i", "j",
+                "a", "b", "c", "d", "e","f", "g", "h", "i", "j"
+        };
 
-        lvTest.setAdapter(adapter);
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+            LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View rootView = inflater.inflate(R.layout.test_item, parent, false);
+            return new MyViewHolder(rootView);
+
+
+
+        }
+
+        @Override
+        public void onBindViewHolder(MyViewHolder holder, int position) {
+
+            holder.item.setItemText("data at" + position + "is" + data[position]);
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return data.length;
+        }
+
+        class MyViewHolder extends RecyclerView.ViewHolder{
+
+            ItemImage item;
+            public MyViewHolder(View itemView) {
+                super(itemView);
+                item = (ItemImage) itemView.findViewById(R.id.i_item);
+            }
+        }
+
+
+
     }
 }
-
- class MyAdapter extends ArrayAdapter{
-
-     String[] texts = {"a", "b", "c", "d", "e","f", "g", "h", "i", "j",
-             "a", "b", "c", "d", "e","f", "g", "h", "i", "j"
-     };
-
-     public MyAdapter(@NonNull Context context) {
-         super(context, -1);
-     }
-
-     @Override
-     public int getCount() {
-         return texts.length;
-     }
-
-     @NonNull
-     @Override
-     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-         View rootView;
-         if(convertView == null){
-             rootView = inflater.inflate(R.layout.test_item, parent, false);
-         }
-         else {
-             rootView = convertView;
-         }
-
-         ItemImage item = (ItemImage) rootView.findViewById(R.id.i_item);
-         item.setItemText("data is "+ texts[position]);
-         return  rootView;
-     }
- }
