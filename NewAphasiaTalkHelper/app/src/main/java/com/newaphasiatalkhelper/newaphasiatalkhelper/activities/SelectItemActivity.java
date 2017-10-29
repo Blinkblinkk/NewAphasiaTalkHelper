@@ -15,7 +15,7 @@ import android.widget.ListView;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage;
 
-public class SelectItemActivity extends AppCompatActivity {
+public class SelectItemActivity extends BaseActivity {
 
     ListView lvTest;
 
@@ -24,6 +24,8 @@ public class SelectItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_select_item);
         setContentView(R.layout.test_listview);
+        //Callfunction
+        initToolbar();
 
         lvTest = (ListView) findViewById(R.id.lv_test);
 

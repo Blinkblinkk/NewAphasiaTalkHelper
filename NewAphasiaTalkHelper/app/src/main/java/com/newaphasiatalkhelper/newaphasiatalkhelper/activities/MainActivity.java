@@ -3,11 +3,12 @@ package com.newaphasiatalkhelper.newaphasiatalkhelper.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     View viewIWant;
     View viewIFeel;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Call function
+        initToolbar();
 
         viewIWant = findViewById(R.id.goto_i_want);
         viewIFeel = findViewById(R.id.goto_i_feel);
