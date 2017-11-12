@@ -10,6 +10,7 @@ import android.support.annotation.RequiresApi;
 import android.support.annotation.StyleRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class ItemImage extends FrameLayout {
 
     ImageView imageView;
     TextView textView;
+    View frame;
 
     public ItemImage(@NonNull Context context) {
         super(context);
@@ -46,10 +48,11 @@ public class ItemImage extends FrameLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
-//เอามาแปะ
+    //เอามาแปะ
     private void init (){
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         layoutInflater.inflate(R.layout.view_item_image,this);
+        frame = findViewById(R.id.item_frame);
         imageView = (ImageView) findViewById(R.id.item_image);
         textView = (TextView) findViewById(R.id.item_text);
     }
@@ -60,5 +63,17 @@ public class ItemImage extends FrameLayout {
 
     public void setItemImage(Drawable img){
         imageView.setImageDrawable(img);
+    }
+    //Frequence of color
+    public void setFrequency(int level){
+        if (level ==3){
+            frame.setBackgroundColor(getResources().getColor(R.color.bg_want_3));
+        }
+        else if (level ==2){
+            frame.setBackgroundColor(getResources().getColor(R.color.bg_want_2));
+        }
+        else {
+            frame.setBackgroundColor(getResources().getColor(R.color.bg_want_1));
+        }
     }
 }

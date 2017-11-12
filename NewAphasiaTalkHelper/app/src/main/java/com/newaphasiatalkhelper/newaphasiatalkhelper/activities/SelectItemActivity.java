@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage;
@@ -28,6 +29,7 @@ public class SelectItemActivity extends BaseActivity {
         GridLayoutManager grid = new GridLayoutManager(this,2, LinearLayoutManager.HORIZONTAL,false);
         rvtest.setLayoutManager(grid);
         rvtest.setAdapter(new MyRecycleAdapter());
+
     }
     class MyRecycleAdapter extends RecyclerView.Adapter <MyRecycleAdapter.MyViewHolder>{
 
@@ -43,11 +45,20 @@ public class SelectItemActivity extends BaseActivity {
                 R.mipmap.exercise_female
         };
 
+        int [] level = {1,2,3,1,3,2};
+
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View rootView = inflater.inflate(R.layout.box_item, parent, false);
+            rootView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(SelectItemActivity.this,"Item selected !!", Toast.LENGTH_SHORT).show();
+                }
+            });
+
             return new MyViewHolder(rootView);
 
 
@@ -59,6 +70,7 @@ public class SelectItemActivity extends BaseActivity {
 
             holder.item.setItemText(data[position]);
             holder.item.setItemImage(getResources().getDrawable(dataImg[position]));
+            holder.item.setFrequency(level[position]);
         }
 
         @Override
