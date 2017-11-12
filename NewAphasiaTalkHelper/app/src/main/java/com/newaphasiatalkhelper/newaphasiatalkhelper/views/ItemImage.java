@@ -1,6 +1,7 @@
 package com.newaphasiatalkhelper.newaphasiatalkhelper.views;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
@@ -55,5 +56,9 @@ public class ItemImage extends FrameLayout {
 
     public void setItemText(String str){
         textView.setText(str);
+    }
+
+    public void setItemImage(Drawable img){
+        imageView.setImageDrawable(img);
     }
 }

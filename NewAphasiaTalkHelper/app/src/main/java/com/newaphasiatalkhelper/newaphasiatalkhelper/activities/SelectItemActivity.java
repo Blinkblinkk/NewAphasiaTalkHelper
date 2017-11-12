@@ -1,18 +1,13 @@
 package com.newaphasiatalkhelper.newaphasiatalkhelper.activities;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage;
@@ -30,20 +25,29 @@ public class SelectItemActivity extends BaseActivity {
         initToolbar();
 
         rvtest = (RecyclerView) findViewById(R.id.rv_test);
-        rvtest.setLayoutManager(new LinearLayoutManager(this));
+        GridLayoutManager grid = new GridLayoutManager(this,2, LinearLayoutManager.HORIZONTAL,false);
+        rvtest.setLayoutManager(grid);
         rvtest.setAdapter(new MyRecycleAdapter());
     }
     class MyRecycleAdapter extends RecyclerView.Adapter <MyRecycleAdapter.MyViewHolder>{
 
-        String[] data = {"a", "b", "c", "d", "e","f", "g", "h", "i", "j",
-                "a", "b", "c", "d", "e","f", "g", "h", "i", "j"
+        String[] data = {"ดื่ม", "กิน", "สระผม", "ฟังเพลง", "กินยา","ออกกำลังกาย"
+        };
+
+        int[] dataImg = {
+                R.mipmap.drink_female,
+                R.mipmap.eat_female,
+                R.mipmap.hairwash_female,
+                R.mipmap.listenmusic_female,
+                R.mipmap.medicine,
+                R.mipmap.exercise_female
         };
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View rootView = inflater.inflate(R.layout.test_item, parent, false);
+            View rootView = inflater.inflate(R.layout.box_item, parent, false);
             return new MyViewHolder(rootView);
 
 
@@ -53,8 +57,8 @@ public class SelectItemActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
 
-            holder.item.setItemText("data at" + position + "is" + data[position]);
-
+            holder.item.setItemText(data[position]);
+            holder.item.setItemImage(getResources().getDrawable(dataImg[position]));
         }
 
         @Override
@@ -70,8 +74,6 @@ public class SelectItemActivity extends BaseActivity {
                 item = (ItemImage) itemView.findViewById(R.id.i_item);
             }
         }
-
-
 
     }
 }
