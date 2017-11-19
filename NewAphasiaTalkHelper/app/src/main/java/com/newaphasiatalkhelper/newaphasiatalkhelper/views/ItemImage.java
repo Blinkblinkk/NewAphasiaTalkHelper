@@ -65,7 +65,7 @@ public class ItemImage extends FrameLayout {
         imageView.setImageDrawable(img);
     }
     //Frequence of color
-    public void setFrequency(int level){
+    public void setBgColor(int level){
         if (level ==3){
             frame.setBackgroundColor(getResources().getColor(R.color.bg_want_3));
         }

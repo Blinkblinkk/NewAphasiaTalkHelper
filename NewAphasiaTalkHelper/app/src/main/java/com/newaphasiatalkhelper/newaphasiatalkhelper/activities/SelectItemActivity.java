@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.ItemDao;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.WantListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage;
 
 public class SelectItemActivity extends BaseActivity {
@@ -33,31 +35,23 @@ public class SelectItemActivity extends BaseActivity {
     }
     class MyRecycleAdapter extends RecyclerView.Adapter <MyRecycleAdapter.MyViewHolder>{
 
-        String[] data = {"ดื่ม", "กิน", "สระผม", "ฟังเพลง", "กินยา","ออกกำลังกาย"
-        };
+        ItemDao[] data;
+        WantListModel model;
 
-        int[] dataImg = {
-                R.mipmap.drink_female,
-                R.mipmap.eat_female,
-                R.mipmap.hairwash_female,
-                R.mipmap.listenmusic_female,
-                R.mipmap.medicine,
-                R.mipmap.exercise_female
-        };
+        public MyRecycleAdapter(){
+            model = new WantListModel(SelectItemActivity.this);
+            data = model.getAll();
+        }
 
-        int [] level = {1,2,3,1,3,2};
+
+
+
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View rootView = inflater.inflate(R.layout.box_item, parent, false);
-            rootView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(SelectItemActivity.this,"Item selected !!", Toast.LENGTH_SHORT).show();
-                }
-            });
 
             return new MyViewHolder(rootView);
 
@@ -68,9 +62,9 @@ public class SelectItemActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
 
-            holder.item.setItemText(data[position]);
-            holder.item.setItemImage(getResources().getDrawable(dataImg[position]));
-            holder.item.setFrequency(level[position]);
+            holder.item.setItemText(data[position].title);
+            holder.item.setItemImage(getResources().getDrawable(data[position].icon));
+            holder.item.setBgColor((position-1)%4==0 || (position-2)%4==0 ? 1 : 3);
         }
 
         @Override
@@ -84,6 +78,14 @@ public class SelectItemActivity extends BaseActivity {
             public MyViewHolder(View itemView) {
                 super(itemView);
                 item = (ItemImage) itemView.findViewById(R.id.i_item);
+
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        model.IncrementFrequency(data[getAdapterPosition()]);
+                        Toast.makeText(SelectItemActivity.this,"Item selected !!" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         }
 
