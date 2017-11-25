@@ -25,7 +25,18 @@ public class WantListModel {
             new ItemDao(3,"สระผม", R.mipmap.hairwash_female),
             new ItemDao(4,"ฟังเพลง", R.mipmap.listenmusic_female),
             new ItemDao(5,"กินยา", R.mipmap.medicine),
-            new ItemDao(6,"ออกกำลังกาย", R.mipmap.exercise_female)
+            new ItemDao(6,"ออกกำลังกาย", R.mipmap.exercise_female),
+            new ItemDao(7,null, null),
+            new ItemDao(8,null, null),
+            new ItemDao(9,"ดื่ม", R.mipmap.drink_female),
+            new ItemDao(10,"กิน", R.mipmap.eat_female),
+            new ItemDao(11,"สระผม", R.mipmap.hairwash_female),
+            new ItemDao(12,"ฟังเพลง", R.mipmap.listenmusic_female),
+            new ItemDao(13,"กินยา", R.mipmap.medicine),
+            new ItemDao(14,"ออกกำลังกาย", R.mipmap.exercise_female),
+            new ItemDao(15,null, null),
+            new ItemDao(16,null, null)
+
     };
 
     public WantListModel(Context context){

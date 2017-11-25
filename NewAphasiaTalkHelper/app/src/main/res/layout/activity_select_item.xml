@@ -5,11 +5,34 @@
 
     <include layout="@layout/toolbar"></include>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_test"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_test"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
+        <ImageView
+            android:id="@+id/btn_prev"
+            android:src="@mipmap/icon_before"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/btn_next"
+            android:src="@mipmap/icon_next"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+
+
+</RelativeLayout>
 </LinearLayout>

@@ -58,11 +58,25 @@ public class ItemImage extends FrameLayout {
     }
 
     public void setItemText(String str){
-        textView.setText(str);
+        if(str == null){
+            textView.setVisibility(INVISIBLE);
+
+        }
+        else {
+            textView.setVisibility(VISIBLE);
+            textView.setText(str);
+        }
     }
 
     public void setItemImage(Drawable img){
-        imageView.setImageDrawable(img);
+        if (img == null){
+            imageView.setVisibility(INVISIBLE);
+        }
+        else{
+            imageView.setVisibility(VISIBLE);
+            imageView.setImageDrawable(img);
+        }
+
     }
     //Frequence of color
     public void setBgColor(int level){
