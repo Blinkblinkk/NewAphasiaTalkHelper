@@ -19,25 +19,34 @@ import java.util.Map;
 public class WantListModel {
 
     WantListDb helper;
-    ItemDao[] data = new ItemDao[]{
-            new ItemDao(1,"ดื่ม", R.mipmap.drink_female),
-            new ItemDao(2,"กิน", R.mipmap.eat_female),
-            new ItemDao(3,"สระผม", R.mipmap.hairwash_female),
-            new ItemDao(4,"ฟังเพลง", R.mipmap.listenmusic_female),
-            new ItemDao(5,"กินยา", R.mipmap.medicine),
-            new ItemDao(6,"ออกกำลังกาย", R.mipmap.exercise_female),
-            new ItemDao(7,null, null),
-            new ItemDao(8,null, null),
-            new ItemDao(9,"ดื่ม", R.mipmap.drink_female),
-            new ItemDao(10,"กิน", R.mipmap.eat_female),
-            new ItemDao(11,"สระผม", R.mipmap.hairwash_female),
-            new ItemDao(12,"ฟังเพลง", R.mipmap.listenmusic_female),
-            new ItemDao(13,"กินยา", R.mipmap.medicine),
-            new ItemDao(14,"ออกกำลังกาย", R.mipmap.exercise_female),
-            new ItemDao(15,null, null),
-            new ItemDao(16,null, null)
+    ItemDao[] data;
 
-    };
+    {
+        data = new ItemDao[]{
+                new ItemDao(1, "กิน", R.mipmap.want_eat),
+                new ItemDao(2, "ดื่ม", R.mipmap.want_drink),
+                new ItemDao(3, "ไป", R.mipmap.want_go),
+                new ItemDao(4, "นอน", R.mipmap.want_sleep),
+                new ItemDao(5, "เข้าห้องน้ำ", R.mipmap.want_toilet),
+                new ItemDao(6, "แปรงฟัน", R.mipmap.want_teethbrush),
+                new ItemDao(7, "อาบน้ำ", R.mipmap.want_shower),
+                new ItemDao(8, "สระผม", R.mipmap.want_hairwash),
+                new ItemDao(9, "ยา", R.mipmap.want_medicine),
+                new ItemDao(10, "นั่ง", R.mipmap.want_sit),
+                new ItemDao(11, "เดิน", R.mipmap.want_walk),
+                new ItemDao(12, "พูดคุย", R.mipmap.want_talk),
+                new ItemDao(13, "ซื้อของ", R.mipmap.want_shopping),
+                new ItemDao(14, "ดูทีวี", R.mipmap.want_watchtv),
+                new ItemDao(15, "อ่านหนังสือ", R.mipmap.want_read),
+                new ItemDao(16, "ออกกำลังกาย", R.mipmap.want_exercise),
+                new ItemDao(17, "ฟังเพลง", R.mipmap.want_listenmusic),
+                new ItemDao(18, "ไม้เท้า", R.mipmap.want_maitow),
+                new ItemDao(19, "นั่งรถเข็น", R.mipmap.want_wheelchair),
+                new ItemDao(20, "ตัดเล็บ", R.mipmap.want_nailcut),
+                new ItemDao(21, "หวีผม", R.mipmap.want_comb),
+                new ItemDao(22, "ประแป้ง", R.mipmap.want_powder),
+        };
+    }
 
     public WantListModel(Context context){
         helper = new WantListDb(context );
