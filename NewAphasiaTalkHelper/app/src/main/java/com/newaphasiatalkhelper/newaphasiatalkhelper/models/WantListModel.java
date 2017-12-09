@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.newaphasiatalkhelper.newaphasiatalkhelper.MainApplication;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.ItemDao;
 
@@ -18,8 +19,17 @@ import java.util.Map;
 
 public class WantListModel {
 
+    private static WantListModel instance;
+    public static WantListModel getInstance(){
+        if (instance==null){
+            instance = new WantListModel(MainApplication.context);
+        }
+        return instance;
+    }
+
     WantListDb helper;
     ItemDao[] data;
+
 
     {
         data = new ItemDao[]{

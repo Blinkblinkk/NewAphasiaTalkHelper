@@ -1,6 +1,7 @@
 package com.newaphasiatalkhelper.newaphasiatalkhelper.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -29,7 +30,7 @@ public class SelectItemActivity extends BaseActivity {
 
         //Callfunction
         initToolbar();
-        model = new WantListModel(SelectItemActivity.this);
+        model = WantListModel.getInstance();
 
         rvBoxItem = (RecyclerView) findViewById(R.id.rv_test);
         btnPrev = findViewById(R.id.btn_prev);
@@ -137,6 +138,8 @@ public class SelectItemActivity extends BaseActivity {
                     public void onClick(View v) {
                         model.IncrementFrequency(data[getAdapterPosition()]);
                         Toast.makeText(SelectItemActivity.this,"Item selected !!" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SelectItemActivity.this, ItemActivity.class);
+                        startActivity(intent);
                     }
                 });
             }
