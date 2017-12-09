@@ -13,6 +13,7 @@ public class ItemDao implements Comparable<ItemDao>{
     public String title;
     public Integer icon;
     public int freq;
+    public Integer subId = null;
 
     public ItemDao() {
 
@@ -22,7 +23,15 @@ public class ItemDao implements Comparable<ItemDao>{
         this.id = id;
         this.title = title;
         this.icon = icon;
+        freq = 0;
+    }
+
+    public ItemDao(int id, String title, Integer icon, int subId) {
+        this.id = id;
+        this.title = title;
+        this.icon = icon;
         freq =0;
+        this.subId = subId;
     }
 
     @Override

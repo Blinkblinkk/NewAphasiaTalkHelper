@@ -29,12 +29,12 @@ public class WantListModel {
 
     WantListDb helper;
     ItemDao[] data;
-
+    Map<Integer, ItemDao[]> dataSub= new HashMap<>();
 
     {
         data = new ItemDao[]{
-                new ItemDao(1, "กิน", R.mipmap.want_eat),
-                new ItemDao(2, "ดื่ม", R.mipmap.want_drink),
+                new ItemDao(1, "กิน", R.mipmap.want_eat,1001),
+                new ItemDao(2, "ดื่ม", R.mipmap.want_drink,1002),
                 new ItemDao(3, "ไป", R.mipmap.want_go),
                 new ItemDao(4, "นอน", R.mipmap.want_sleep),
                 new ItemDao(5, "เข้าห้องน้ำ", R.mipmap.want_toilet),
@@ -54,8 +54,21 @@ public class WantListModel {
                 new ItemDao(19, "นั่งรถเข็น", R.mipmap.want_wheelchair),
                 new ItemDao(20, "ตัดเล็บ", R.mipmap.want_nailcut),
                 new ItemDao(21, "หวีผม", R.mipmap.want_comb),
-                new ItemDao(22, "ประแป้ง", R.mipmap.want_powder),
+                new ItemDao(22, null, null),
+                new ItemDao(23, "ประแป้ง", R.mipmap.want_powder),
+                new ItemDao(24, null, null),
         };
+        dataSub.put(1001,new ItemDao[]{
+                new ItemDao(100101, "จานหลัก", R.mipmap.want_eat_main),
+                new ItemDao(100102, "ขนมหวาน", R.mipmap.want_eat_sweet),
+                new ItemDao(100103, null, null),
+                new ItemDao(100104, "ผลไม้", R.mipmap.want_eat_fruit),});
+
+        dataSub.put(1002,new ItemDao[]{
+                new ItemDao(100201, "เครื่องดื่มร้อน", R.mipmap.want_drink_hot),
+                new ItemDao(100202, "เครื่องดื่มเย็น", R.mipmap.want_drink_cold),
+                new ItemDao(100203, null, null),
+                new ItemDao(100204, "เครื่องดื่มปั่น", R.mipmap.want_drink_frappe),});
     }
 
     public WantListModel(Context context){
@@ -71,6 +84,15 @@ public class WantListModel {
         return data;
     }
     //Cont.
+
+    public ItemDao get(int index){
+        return data[index];
+    }
+
+    public ItemDao[] getSubAll(int subId){
+        return dataSub.get(subId);
+    }
+
     public void IncrementFrequency(ItemDao item){
 
     }

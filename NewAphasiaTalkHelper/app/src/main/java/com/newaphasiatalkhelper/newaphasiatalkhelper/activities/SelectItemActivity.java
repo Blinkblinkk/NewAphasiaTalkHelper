@@ -22,12 +22,13 @@ public class SelectItemActivity extends BaseActivity {
     RecyclerView rvBoxItem;
     View btnPrev, btnNext;
     WantListModel model;
-
+    int subId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_item);
 
+        subId = getIntent().getIntExtra("subId",0);
         //Callfunction
         initToolbar();
         model = WantListModel.getInstance();
@@ -92,7 +93,8 @@ public class SelectItemActivity extends BaseActivity {
 
 
         public MyRecycleAdapter(){
-            data = model.getAll();
+
+            data =subId > 0 ? model.getSubAll(subId) : model.getAll();
         }
 
 
@@ -138,8 +140,18 @@ public class SelectItemActivity extends BaseActivity {
                     public void onClick(View v) {
                         model.IncrementFrequency(data[getAdapterPosition()]);
                         Toast.makeText(SelectItemActivity.this,"Item selected !!" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
+
+                        Integer subId = data[getAdapterPosition()].subId;
+                        if(subId == null){
                         Intent intent = new Intent(SelectItemActivity.this, ItemActivity.class);
+                        intent.putExtra("index", getAdapterPosition());
                         startActivity(intent);
+                        }
+                        else{
+                            Intent intent = new Intent(SelectItemActivity.this, SelectItemActivity.class);
+                            intent.putExtra("subId", subId);
+                            startActivity(intent);
+                        }
                     }
                 });
             }
