@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.helper.Speaker;
 
 public class MainActivity extends BaseActivity {
 
@@ -30,6 +31,7 @@ public class MainActivity extends BaseActivity {
         viewIWant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Speaker.speak("ฉันต้องการ", MainActivity.this);
                 Intent intent = new Intent(MainActivity.this, SelectItemActivity.class);
                 startActivity(intent);
             }
@@ -38,6 +40,7 @@ public class MainActivity extends BaseActivity {
         viewIFeel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Speaker.speak("ฉันรู้สึก", MainActivity.this);
                 Intent intent = new Intent(MainActivity.this, SelectItemActivity.class);
                 startActivity(intent);
             }
@@ -46,6 +49,7 @@ public class MainActivity extends BaseActivity {
         viewTypeText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Speaker.speak("พิมพ์ข้อความ", MainActivity.this);
                 Intent intent = new Intent(MainActivity.this, TypeTextActivity.class);
                 startActivity(intent);
             }
@@ -54,6 +58,7 @@ public class MainActivity extends BaseActivity {
         viewFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Speaker.speak("รายการโปรด", MainActivity.this);
                 Intent intent = new Intent(MainActivity.this, FavoriteActivity.class);
                 startActivity(intent);
             }

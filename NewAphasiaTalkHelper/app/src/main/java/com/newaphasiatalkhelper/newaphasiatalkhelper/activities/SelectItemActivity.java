@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.ItemDao;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.helper.Speaker;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.WantListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage;
 
@@ -139,6 +140,7 @@ public class SelectItemActivity extends BaseActivity {
                     @Override
                     public void onClick(View v) {
                         model.IncrementFrequency(data[getAdapterPosition()]);
+                        Speaker.speak(data[getAdapterPosition()].title, SelectItemActivity.this);
                         Toast.makeText(SelectItemActivity.this,"Item selected !!" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
 
                         Integer subId = data[getAdapterPosition()].subId;
