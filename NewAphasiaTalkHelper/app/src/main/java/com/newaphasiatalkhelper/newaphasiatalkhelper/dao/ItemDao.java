@@ -52,6 +52,7 @@ public class ItemDao implements Comparable<ItemDao>{
 
 
     public ItemDao speech(String speech){
+        this.speech = speech;
         return this;
     }
 
