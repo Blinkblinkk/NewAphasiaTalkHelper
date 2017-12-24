@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.ItemDao;
-import com.newaphasiatalkhelper.newaphasiatalkhelper.helper.Speaker;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.helpers.Speaker;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.WantListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage;
 

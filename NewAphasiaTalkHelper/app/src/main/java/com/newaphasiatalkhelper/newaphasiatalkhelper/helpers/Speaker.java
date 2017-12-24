@@ -1,4 +1,4 @@
-package com.newaphasiatalkhelper.newaphasiatalkhelper.helper;
+package com.newaphasiatalkhelper.newaphasiatalkhelper.helpers;
 
 import android.app.Activity;
 import android.app.AlertDialog;
