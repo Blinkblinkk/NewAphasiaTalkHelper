@@ -17,9 +17,14 @@ import java.util.Map;
  * Created by Tum on 11/19/2017 AD.
  */
 
-public class WantListModel {
+public class WantListModel extends ListModel{
 
     private static WantListModel instance;
+
+    public WantListModel(Context context) {
+        super(context);
+    }
+
     public static WantListModel getInstance(){
         if (instance==null){
             instance = new WantListModel(MainApplication.context);
@@ -27,9 +32,6 @@ public class WantListModel {
         return instance;
     }
 
-    WantListDb helper;
-    ItemDao[] data;
-    Map<Integer, ItemDao[]> dataSub= new HashMap<>();
 
     {
         data = new ItemDao[]{
@@ -65,7 +67,7 @@ public class WantListModel {
                 new ItemDao(100104, null, null),});
 
             dataSub.put(1001001,new ItemDao[]{
-                    new ItemDao(100100101, "บะหมี่หมูแดง", R.mipmap.want_eat_main_bamheemhoodang),
+                    new ItemDao(100100101, "บะหมี่หมูแดง", R.mipmap.want_eat_main_bamheemhoodang).speech("ฉันต้องการกินบะหมี่หมูแดง"),
                     new ItemDao(100100102, "เสต็กเนื้อ", R.mipmap.want_eat_main_beefsteak),
                     new ItemDao(100100103, "ไก่ทอด", R.mipmap.want_eat_main_friedchic),
                     new ItemDao(100100104, "ไก่ผัดขิง", R.mipmap.want_eat_main_kaipadking),
@@ -163,7 +165,7 @@ public class WantListModel {
                     new ItemDao(100300107, "ชาเขียวร้อน", R.mipmap.want_drink_hot_chakeawron),
                     new ItemDao(100300108, "น้ำเต้าหู้", R.mipmap.want_drink_hot_namtaohuu),});
 
-            
+
 
             dataSub.put(1003002,new ItemDao[]{
                     new ItemDao(100300201, "แอปเปิ้ลปั่น", R.mipmap.want_drink_frappe_applefrappe),
@@ -208,78 +210,5 @@ public class WantListModel {
                 new ItemDao(100208, null, null),});
     }
 
-    public WantListModel(Context context){
-        helper = new WantListDb(context );
-        Map<Integer,Integer> f = helper.getAllIdAndFrequency();
-        for (ItemDao item : data){
-            item.freq = f.get(item.id);
-        }
-        Arrays.sort(data);
-    }
 
-    public ItemDao[] getAll(){
-        return data;
-    }
-    //Cont.
-
-    public ItemDao get(int index){
-        return data[index];
-    }
-
-    public ItemDao[] getSubAll(int subId){
-        return dataSub.get(subId);
-    }
-
-    public void IncrementFrequency(ItemDao item){
-
-    }
-
-    //DatabaseWantList
-    public class WantListDb extends SQLiteOpenHelper{
-
-        public WantListDb(Context context) {
-            super(context, null, null, 1);
-        }
-
-        //CreateTableForWantList
-
-        @Override
-        public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE WantListDb (id INTERGER PRIMARY KEY, freq INTERGER)");
-            for (ItemDao item : getAll()){
-                db.execSQL("INSERT INTO WantListDb VALUES(" + item.id + ", 0)");
-            }
-
-        }
-
-        @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS WantListDb");
-            onCreate(db);
-
-        }
-
-        public Map<Integer,Integer> getAllIdAndFrequency(){
-            SQLiteDatabase db = getWritableDatabase();
-
-            Cursor cursor = db.query("WantListDb", null, null, null, null, null, "freq");
-
-            Map<Integer,Integer> ids = new HashMap<>();
-
-            if (cursor != null){
-                cursor.moveToFirst();
-            }
-
-            while(!cursor.isAfterLast()){
-
-                int id = cursor.getInt(0);
-                int freq = cursor.getInt(1);
-                ids.put(id, freq);
-                cursor.moveToNext();
-            }
-            db.close();
-
-            return ids;
-        }
-    }
 }

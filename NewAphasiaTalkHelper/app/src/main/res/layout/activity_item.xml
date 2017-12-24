@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.newaphasiatalkhelper.newaphasiatalkhelper.activities.ItemActivity">
+    tools:context="com.newaphasiatalkhelper.newaphasiatalkhelper.activities.ItemActivity"
+    android:orientation="vertical">
 
     <com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage
         android:id="@+id/item_img"
@@ -13,4 +14,9 @@
 
     </com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage>
 
+    <ImageView
+        android:id="@+id/btn_speech"
+        android:
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

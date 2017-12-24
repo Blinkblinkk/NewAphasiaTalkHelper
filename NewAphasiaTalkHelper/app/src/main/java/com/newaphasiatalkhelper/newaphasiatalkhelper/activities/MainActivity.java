@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 Speaker.speak("ฉันต้องการ", MainActivity.this);
                 Intent intent = new Intent(MainActivity.this, SelectItemActivity.class);
+                intent.putExtra("type", "want");
                 startActivity(intent);
             }
         });
@@ -40,6 +41,7 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 Speaker.speak("ฉันรู้สึก", MainActivity.this);
                 Intent intent = new Intent(MainActivity.this, SelectItemActivity.class);
+                intent.putExtra("type", "feel");
                 startActivity(intent);
             }
         });

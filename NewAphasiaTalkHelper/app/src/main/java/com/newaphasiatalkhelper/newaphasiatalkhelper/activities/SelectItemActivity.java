@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.ItemDao;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.helpers.Speaker;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FeelListModel;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.ListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.WantListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage;
 
@@ -22,17 +24,28 @@ public class SelectItemActivity extends BaseActivity {
 
     RecyclerView rvBoxItem;
     View btnPrev, btnNext;
-    WantListModel model;
+    ListModel model;
     int subId;
+    String type;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_item);
 
         subId = getIntent().getIntExtra("subId",0);
+        type = getIntent().getStringExtra("type");
+
         //Callfunction
         initToolbar();
-        model = WantListModel.getInstance();
+
+        if("want".equals(type)){
+            model = WantListModel.getInstance();
+        }
+        else if("feel".equals(type)){
+            model = FeelListModel.getInstance();
+        }
 
         rvBoxItem = (RecyclerView) findViewById(R.id.rv_test);
         btnPrev = findViewById(R.id.btn_prev);
@@ -86,7 +99,7 @@ public class SelectItemActivity extends BaseActivity {
     }
 
     private  int getTotalPage(){
-        return (int) Math.ceil(model.getAll().length/4);
+        return (int) Math.ceil((subId>0? model.getSubAll(subId).length: model.getAll().length) /4);
     }
     class MyRecycleAdapter extends RecyclerView.Adapter <MyRecycleAdapter.MyViewHolder>{
 
@@ -139,19 +152,27 @@ public class SelectItemActivity extends BaseActivity {
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        model.IncrementFrequency(data[getAdapterPosition()]);
-                        Speaker.speak(data[getAdapterPosition()].title, SelectItemActivity.this);
-                        Toast.makeText(SelectItemActivity.this,"Item selected !!" + getAdapterPosition(), Toast.LENGTH_SHORT).show();
 
-                        Integer subId = data[getAdapterPosition()].subId;
-                        if(subId == null){
+                        int pos = getAdapterPosition();
+                        if(!data[pos].isOk()) return;
+
+                        model.IncrementFrequency(data[pos]);
+                        Speaker.speak(data[pos].title, SelectItemActivity.this);
+                        Toast.makeText(SelectItemActivity.this,"Item selected !!" + pos, Toast.LENGTH_SHORT).show();
+
+                        Integer nextSubId = data[pos].subId;
+                        if(nextSubId == null){
                         Intent intent = new Intent(SelectItemActivity.this, ItemActivity.class);
-                        intent.putExtra("index", getAdapterPosition());
+                        intent.putExtra("index", pos);
+                        intent.putExtra("subId", subId);
+                        intent.putExtra("type", type);
                         startActivity(intent);
                         }
                         else{
                             Intent intent = new Intent(SelectItemActivity.this, SelectItemActivity.class);
-                            intent.putExtra("subId", subId);
+                            intent.putExtra("index", pos);
+                            intent.putExtra("subId", nextSubId);
+                            intent.putExtra("type", type);
                             startActivity(intent);
                         }
                     }
