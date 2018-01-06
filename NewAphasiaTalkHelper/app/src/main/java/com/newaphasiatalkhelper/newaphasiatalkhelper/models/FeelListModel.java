@@ -41,7 +41,9 @@ public class FeelListModel extends ListModel{
                 new ItemDao(11, "เศร้า", R.mipmap.feel_sad).speech("ฉันรู้สึกเศร้า"),
                 new ItemDao(12, "กลัว", R.mipmap.feel_scare).speech("ฉันรู้สึกกลัว"),
                 new ItemDao(13, "โกรธ", R.mipmap.feel_angry).speech("ฉันรู้สึกโกรธ"),
-                new ItemDao(14, "คัน", R.mipmap.feel_scratch).speech("ฉันรู้สึกคัน"),
+                new ItemDao(14, null, null),
+                new ItemDao(15, "คัน", R.mipmap.feel_scratch).speech("ฉันรู้สึกคัน"),
+                new ItemDao(16, null, null),
 
         };
 

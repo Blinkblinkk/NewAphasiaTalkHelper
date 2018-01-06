@@ -21,6 +21,7 @@ public class MainActivity extends BaseActivity {
         //Call function
         initToolbar();
 
+
         viewIWant = findViewById(R.id.goto_i_want);
         viewIFeel = findViewById(R.id.goto_i_feel);
         viewTypeText = findViewById(R.id.goto_type_text);
@@ -29,7 +30,7 @@ public class MainActivity extends BaseActivity {
         viewIWant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Speaker.speak("ฉันต้องการ", MainActivity.this);
+                Speaker.speak("ฉันต้องการ");
                 Intent intent = new Intent(MainActivity.this, SelectItemActivity.class);
                 intent.putExtra("type", "want");
                 startActivity(intent);
@@ -39,7 +40,7 @@ public class MainActivity extends BaseActivity {
         viewIFeel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Speaker.speak("ฉันรู้สึก", MainActivity.this);
+                Speaker.speak("ฉันรู้สึก");
                 Intent intent = new Intent(MainActivity.this, SelectItemActivity.class);
                 intent.putExtra("type", "feel");
                 startActivity(intent);
@@ -49,7 +50,7 @@ public class MainActivity extends BaseActivity {
         viewTypeText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Speaker.speak("พิมพ์ข้อความ", MainActivity.this);
+                Speaker.speak("พิมพ์ข้อความ");
                 Intent intent = new Intent(MainActivity.this, TypeTextActivity.class);
                 startActivity(intent);
             }
@@ -58,10 +59,22 @@ public class MainActivity extends BaseActivity {
         viewFav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Speaker.speak("รายการโปรด", MainActivity.this);
+                Speaker.speak("รายการโปรด");
                 Intent intent = new Intent(MainActivity.this, FavoriteActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Speaker.onStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Speaker.onStop();
     }
 }

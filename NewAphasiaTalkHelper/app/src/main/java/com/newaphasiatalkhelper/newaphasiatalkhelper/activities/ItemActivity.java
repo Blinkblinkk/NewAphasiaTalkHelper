@@ -55,8 +55,20 @@ public class ItemActivity extends AppCompatActivity {
         speak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Speaker.speak(item.speech, ItemActivity.this);
+                Speaker.speak(item.speech);
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Speaker.onStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Speaker.onStop();
     }
 }

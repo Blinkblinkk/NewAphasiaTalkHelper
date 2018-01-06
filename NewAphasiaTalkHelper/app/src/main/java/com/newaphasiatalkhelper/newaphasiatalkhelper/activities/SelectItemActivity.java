@@ -69,6 +69,16 @@ public class SelectItemActivity extends BaseActivity {
         });
         adjustPrevNextVisible();
     }
+
+    protected void onStart(){
+        super.onStart();
+        Speaker.onStart(this);
+    }
+    protected void onStop(){
+        super.onStop();
+        Speaker.onStop();
+    }
+
     private void adjustPrevNextVisible(){
         btnPrev.setVisibility(getCurrentPage()>0? View.VISIBLE : View.GONE);
         btnNext.setVisibility(getCurrentPage()<getTotalPage()-1? View.VISIBLE : View.GONE);
@@ -80,7 +90,7 @@ public class SelectItemActivity extends BaseActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(300);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -157,7 +167,7 @@ public class SelectItemActivity extends BaseActivity {
                         if(!data[pos].isOk()) return;
 
                         model.IncrementFrequency(data[pos]);
-                        Speaker.speak(data[pos].title, SelectItemActivity.this);
+                        Speaker.speak(data[pos].title);
                         Toast.makeText(SelectItemActivity.this,"Item selected !!" + pos, Toast.LENGTH_SHORT).show();
 
                         Integer nextSubId = data[pos].subId;

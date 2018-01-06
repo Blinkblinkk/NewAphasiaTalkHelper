@@ -19,14 +19,13 @@ public class Speaker {
 
     static TextToSpeech tts;
 
-    public static void speak(final String msg, final Context context){
+    public static void onStart(final Context context){
         tts = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS){
                     tts.setLanguage(new Locale("th"));
-                    tts.speak(msg, TextToSpeech.QUEUE_ADD,null);
-                    //tts.shutdown();
+
                 }
                 else if(context instanceof Activity) {
                     new AlertDialog.Builder(context)
@@ -41,11 +40,20 @@ public class Speaker {
                                     a.startActivity(intent);
                                 }
                             })
-                            .setNegativeButton("ยังก่อน",null)
+                            .setNegativeButton("ไว้ภายหลัง",null)
                             .show();
                 }
             }
         });
+    }
+
+    public static void onStop(){
+        tts.shutdown();
+        tts=null;
+    }
+
+    public static void speak(final String msg){
+        tts.speak(msg, TextToSpeech.QUEUE_ADD,null);
 
     }
 
