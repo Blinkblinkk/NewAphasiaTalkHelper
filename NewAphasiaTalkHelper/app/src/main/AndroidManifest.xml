@@ -20,7 +20,8 @@
         <activity android:name=".activities.SelectItemActivity" />
         <activity android:name=".activities.TypeTextActivity" />
         <activity android:name=".activities.FavoriteActivity" />
-        <activity android:name=".activities.ItemActivity"></activity>
+        <activity android:name=".activities.ItemActivity" />
+        <activity android:name=".activities.WelcomeActivity"></activity>
     </application>
 
 </manifest>
