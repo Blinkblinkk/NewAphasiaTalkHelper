@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.newaphasiatalkhelper.newaphasiatalkhelper.activities.TypeTextActivity">
+    tools:context="com.newaphasiatalkhelper.newaphasiatalkhelper.activities.TypeTextActivity"
+    android:orientation="vertical">
 
     <include layout="@layout/toolbar">
     </include>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="type text"/>
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:inputType="textMultiLine"
+    android:background="#ff86af"
+    android:textSize="50sp"/>
+
 </LinearLayout>
