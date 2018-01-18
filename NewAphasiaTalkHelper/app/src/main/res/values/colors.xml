@@ -4,7 +4,12 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="bg_want_1">#f4eba4</color>
-    <color name="bg_want_2">#f1e05f</color>
-    <color name="bg_want_3">#f9dd01</color>
+    <color name="bg_want_light">#f4eba4</color>
+    <color name="bg_want_dark">#f9dd01</color>
+
+    <color name="bg_feel_light">#ffcc92</color>
+    <color name="bg_feel_dark">#ffb056</color>
+
+    <color name="bg_want">#fff87b</color>
+    <color name="bg_feel">#fdcb84</color>
 </resources>

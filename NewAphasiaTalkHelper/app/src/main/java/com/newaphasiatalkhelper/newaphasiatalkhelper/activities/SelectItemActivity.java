@@ -144,7 +144,7 @@ public class SelectItemActivity extends BaseActivity {
 
             holder.item.setItemText(data[position].title);
             holder.item.setItemImage(getImage(data[position].icon));
-            holder.item.setBgColor((position-1)%4==0 || (position-2)%4==0 ? 1 : 3);
+            holder.item.setBgColor((position-1)%4==0 || (position-2)%4==0 ? 1 : 2, type);
         }
 
         @Override

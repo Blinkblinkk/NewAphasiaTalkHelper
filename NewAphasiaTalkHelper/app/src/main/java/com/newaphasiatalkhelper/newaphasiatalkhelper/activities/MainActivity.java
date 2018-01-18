@@ -21,12 +21,15 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         //Call function
         initToolbar();
+
+        final boolean doLoading = getIntent().getIntExtra("loading", 1) == 1;
+
         final ProgressDialog p = ProgressDialog.show(this,"", "กรุณารอสักครู่",true);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(1500);
+                    Thread.sleep(doLoading ? 1500 : 1);
                     p.dismiss();
                 } catch (InterruptedException e) {
                     e.printStackTrace();

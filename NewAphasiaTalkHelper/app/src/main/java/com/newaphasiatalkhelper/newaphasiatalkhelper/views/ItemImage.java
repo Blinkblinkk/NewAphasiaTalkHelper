@@ -48,46 +48,52 @@ public class ItemImage extends FrameLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
+
     //เอามาแปะ
-    private void init (){
+    private void init() {
         LayoutInflater layoutInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        layoutInflater.inflate(R.layout.view_item_image,this);
+        layoutInflater.inflate(R.layout.view_item_image, this);
         frame = findViewById(R.id.item_frame);
         imageView = (ImageView) findViewById(R.id.item_image);
         textView = (TextView) findViewById(R.id.item_text);
     }
 
-    public void setItemText(String str){
-        if(str == null){
+    public void setItemText(String str) {
+        if (str == null) {
             textView.setVisibility(INVISIBLE);
 
-        }
-        else {
+        } else {
             textView.setVisibility(VISIBLE);
             textView.setText(str);
         }
     }
 
-    public void setItemImage(Drawable img){
-        if (img == null){
+    public void setItemImage(Drawable img) {
+        if (img == null) {
             imageView.setVisibility(INVISIBLE);
-        }
-        else{
+        } else {
             imageView.setVisibility(VISIBLE);
             imageView.setImageDrawable(img);
         }
 
     }
+
     //Frequence of color
-    public void setBgColor(int level){
-        if (level ==3){
-            frame.setBackgroundColor(getResources().getColor(R.color.bg_want_3));
+    public void setBgColor(int level, String type) {
+        if ("want".equals(type)) {
+            if (level == 2) {
+                frame.setBackgroundColor(getResources().getColor(R.color.bg_want_dark));
+            } else {
+                frame.setBackgroundColor(getResources().getColor(R.color.bg_want_light));
+            }
+
         }
-        else if (level ==2){
-            frame.setBackgroundColor(getResources().getColor(R.color.bg_want_2));
-        }
-        else {
-            frame.setBackgroundColor(getResources().getColor(R.color.bg_want_1));
+        else{
+            if (level == 2) {
+                frame.setBackgroundColor(getResources().getColor(R.color.bg_feel_dark));
+            } else {
+                frame.setBackgroundColor(getResources().getColor(R.color.bg_feel_light));
+            }
         }
     }
 }

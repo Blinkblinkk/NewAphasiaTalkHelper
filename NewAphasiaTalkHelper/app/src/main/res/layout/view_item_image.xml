@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/item_frame"
-    android:background="@color/bg_want_1"
+    android:background="@color/bg_want_light"
     android:maxWidth="180dp"
     >
 
