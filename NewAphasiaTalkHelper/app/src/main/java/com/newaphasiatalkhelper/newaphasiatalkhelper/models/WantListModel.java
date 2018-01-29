@@ -94,10 +94,10 @@ public class WantListModel extends ListModel{
                     new ItemDao(100100125, "ผัดซีอิ๊ว", R.mipmap.want_eat_main_padseeeiw).speech("ฉันต้องการกินผัดซีอิ๊ว"),
                     new ItemDao(100100126, "ผัดไท", R.mipmap.want_eat_main_padthai).speech("ฉันต้องการกินผัดไท"),
                     new ItemDao(100100127, "ผัดไทกุ้งสด", R.mipmap.want_eat_main_padthaikungsod).speech("ฉันต้องการกินผัดไทกุ้งสด"),
-                    new ItemDao(100100128, "แพนงหมู", R.mipmap.want_eat_main_panangmhoo).speech("ฉันต้องการกินแพนงหมู"),
+                    new ItemDao(100100128, "พะแนงหมู", R.mipmap.want_eat_main_panangmhoo).speech("ฉันต้องการกินพะแนงหมู"),
                     new ItemDao(100100129, "พิซซ่า", R.mipmap.want_eat_main_pizza).speech("ฉันต้องการกินพิซซ่า"),
                     new ItemDao(100100130, "ส้มตำ", R.mipmap.want_eat_main_somtam).speech("ฉันต้องการกินส้มตำ"),
-                    new ItemDao(100100131, "สัมตำปลาร้า", R.mipmap.want_eat_main_somtamplara).speech("ฉันต้องการกินส้มตำปลาร้า"),
+                    new ItemDao(100100131, "ส้มตำปลาร้า", R.mipmap.want_eat_main_somtamplara).speech("ฉันต้องการกินส้มตำปลาร้า"),
                     new ItemDao(100100132, "สปาเก็ตตี้ซอสแดง", R.mipmap.want_eat_main_spaghetti).speech("ฉันต้องการกินสปาเก็ตตี้ซอสแดง"),
                     new ItemDao(100100133, "ทอดมัน", R.mipmap.want_eat_main_todmun).speech("ฉันต้องการกินทอดมัน"),
                     new ItemDao(100100134, null, null),
@@ -105,7 +105,7 @@ public class WantListModel extends ListModel{
                     new ItemDao(100100136, null, null),});
 
             dataSub.put(1001002,new ItemDao[]{
-                    new ItemDao(100100201, "แอปเปิ้ล", R.mipmap.want_eat_fruit_apple).speech("ฉันต้องกินแอปเปิ้ล"),
+                    new ItemDao(100100201, "แอปเปิ้ล", R.mipmap.want_eat_fruit_apple).speech("ฉันต้องการกินแอปเปิ้ล"),
                     new ItemDao(100100202, "แคนตาลูป", R.mipmap.want_eat_fruit_cantaloop).speech("ฉันต้องการกินแคนตาลูป"),
                     new ItemDao(100100203, "ชมพู่", R.mipmap.want_eat_fruit_chompoo).speech("ฉันต้องการกินชมพู่"),
                     new ItemDao(100100204, "แก้วมังกร", R.mipmap.want_eat_fruit_dragonfruit).speech("ฉันต้องการกินแก้วมังกร"),
@@ -125,7 +125,7 @@ public class WantListModel extends ListModel{
                     new ItemDao(100100218, "น้อยหน่า", R.mipmap.want_eat_fruit_nhoina).speech("ฉันต้องการกินน้อยหน่า"),
                     new ItemDao(100100219, "สับปะรด", R.mipmap.want_eat_fruit_pineapple).speech("ฉันต้องการกินสับปะรด"),
                     new ItemDao(100100220, "ส้ม", R.mipmap.want_eat_fruit_som).speech("ฉันต้องการกินส้ม"),
-                    new ItemDao(100100221, "สตรอว์เบอร์รี่", R.mipmap.want_eat_fruit_strawberry).speech("ฉันต้องการกินสตรอว์เบอร์รี่"),
+                    new ItemDao(100100221, "สตรอเบอร์รี่", R.mipmap.want_eat_fruit_strawberry).speech("ฉันต้องการกินสตรอเบอร์รี่"),
                     new ItemDao(100100222, "มะขาม", R.mipmap.want_eat_fruit_tamarind).speech("ฉันต้องการกินมะขาม"),
                     new ItemDao(100100223, "แตงโม", R.mipmap.want_eat_fruit_tangmo).speech("ฉันต้องการกินแตงโม"),
                     new ItemDao(100100224, "เผือก", R.mipmap.want_eat_fruit_taro).speech("ฉันต้องการกินเผือก"),});
@@ -136,11 +136,11 @@ public class WantListModel extends ListModel{
                     new ItemDao(100100303, "ขนมกล้วย", R.mipmap.want_eat_sweet_kanomkuy).speech("ฉันต้องการกินขนมกล้วย"),
                     new ItemDao(100100304, "ขนมถ้วย", R.mipmap.want_eat_sweet_kanomtuy).speech("ฉันต้องการกินขนมถ้วย"),
                     new ItemDao(100100305, "ข้าวเหนียวมะม่วง", R.mipmap.want_eat_sweet_kaoneawmamuang).speech("ฉันต้องการกินข้าวเหนียวมะม่วง"),
-                    new ItemDao(100100306, "กลัวยบวดชี", R.mipmap.want_eat_sweet_kuybuadchee).speech("ฉันต้องการกินกล้วยบวดชี"),
+                    new ItemDao(100100306, "กล้วยบวดชี", R.mipmap.want_eat_sweet_kuybuadchee).speech("ฉันต้องการกินกล้วยบวดชี"),
                     new ItemDao(100100307, "ลอดช่อง", R.mipmap.want_eat_sweet_lodchong).speech("ฉันต้องการกินลอดช่อง"),
                     new ItemDao(100100308, "แตงไทยกะทิ", R.mipmap.want_eat_sweet_melonkati).speech("ฉันต้องการกินแตงไทยกะทิ"),
                     new ItemDao(100100309, "รวมมิตร", R.mipmap.want_eat_sweet_mixedthaidessert).speech("ฉันต้องการกินรวมมิตร"),
-                    new ItemDao(100100310, "ซาหริ่ม", R.mipmap.want_eat_sweet_salim).speech("ฉันต้องการกินซาหริ่ม"),
+                    new ItemDao(100100310, "ซ่าหริ่ม", R.mipmap.want_eat_sweet_salim).speech("ฉันต้องการกินซ่าหริ่ม"),
                     new ItemDao(100100311, "บวดเผือก", R.mipmap.want_eat_sweet_tarobuad).speech("ฉันต้องการกินบวดเผือก"),
                     new ItemDao(100100312, "ถั่วเขียว", R.mipmap.want_eat_sweet_tuakeaw).speech("ฉันต้องการกินถั่วเขียว"),
                     new ItemDao(100100313, "ทับทิมกรอบ", R.mipmap.want_eat_sweet_tubtimkrob).speech("ฉันต้องการกินทับทิมกรอบ"),
@@ -176,7 +176,7 @@ public class WantListModel extends ListModel{
                     new ItemDao(100300206, "นมปั่น", R.mipmap.want_drink_frappe_milkshake).speech("ฉันต้องการดื่มนมปั่น"),
                     new ItemDao(100300207, "ผลไม้รวมปั่น", R.mipmap.want_drink_frappe_mixfruitfrappe).speech("ฉันต้องการดื่มผลไม้รวมปั่น"),
                     new ItemDao(100300208, "สับปะรดปั่น", R.mipmap.want_drink_frappe_pineapplefrappe).speech("ฉันต้องการดื่มสับปะรดปั่น"),
-                    new ItemDao(100300209, "สตรอว์เบอร์รี่ปั่น", R.mipmap.want_drink_frappe_strawberrypun).speech("ฉันต้องการดื่มสตรอว์เบอร์รี่ปั่น"),
+                    new ItemDao(100300209, "สตรอเบอร์รี่ปั่น", R.mipmap.want_drink_frappe_strawberrypun).speech("ฉันต้องการดื่ม"+"\n"+"สตรอเบอร์รี่ปั่น"),
                     new ItemDao(100300210, "แตงโมปั่น", R.mipmap.want_drink_frappe_tangmopun).speech("ฉันต้องการดื่มแตงโมปั่น"),
                     new ItemDao(100300211, "ชานมปั่น", R.mipmap.want_drink_frappe_thaiteafrappe).speech("ฉันต้องการดื่มชานมปั่น"),
                     new ItemDao(100300212, "ผักรวมปั่น", R.mipmap.want_drink_frappe_vegetablefrappe).speech("ฉันต้องการดื่มผักรวมปั่น"),});
