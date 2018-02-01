@@ -4,14 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.newaphasiatalkhelper.newaphasiatalkhelper.activities.FavoriteActivity">
+    tools:context="com.newaphasiatalkhelper.newaphasiatalkhelper.activities.FavoriteActivity"
+    android:orientation="vertical">
 
 
     <include layout="@layout/toolbar">
     </include>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="favorite"/>
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/fav_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        tools:listitem="@layout/view_fav_sentence">
+
+
+    </android.support.v7.widget.RecyclerView>
+
 </LinearLayout>

@@ -67,9 +67,9 @@ public class WantListModel extends ListModel{
                 new ItemDao(100104, null, null),});
 
             dataSub.put(1001001,new ItemDao[]{
-                    new ItemDao(100100101, "บะหมี่หมูแดง", R.mipmap.want_eat_main_bamheemhoodang).speech("ฉันต้องการกินบะหมี่หมูแดง"),
-                    new ItemDao(100100102, "สเต็กเนื้อ", R.mipmap.want_eat_main_beefsteak).speech("ฉันต้องการกินสเต็กเนื้อ"),
-                    new ItemDao(100100103, "ไก่ทอด", R.mipmap.want_eat_main_friedchic).speech("ฉันต้องการกินไก่ทอด"),
+                    new ItemDao(100100101, "บะหมี่หมูแดง", R.mipmap.want_eat_main_bamheemhoodang).speech("ฉันต้องการกิน"+"\n"+"บะหมี่หมูแดง"),
+                    new ItemDao(100100102, "สเต็กเนื้อ", R.mipmap.want_eat_main_beefsteak).speech("ฉันต้องการกิน"+"\n"+"สเต็กเนื้อ"),
+                    new ItemDao(100100103, "ไก่ทอด", R.mipmap.want_eat_main_friedchic).speech("ฉันต้องการกิน"+"\n"+"ไก่ทอด"),
                     new ItemDao(100100104, "ไก่ผัดขิง", R.mipmap.want_eat_main_kaipadking).speech("ฉันต้องการกินไก่ผัดขิง"),
                     new ItemDao(100100105, "แกงเขียวหวาน", R.mipmap.want_eat_main_kangkeawwhan).speech("ฉันต้องการกินแกงเขียวหวาน"),
                     new ItemDao(100100106, "แกงมะระ", R.mipmap.want_eat_main_kangmara).speech("ฉันต้องการกินแกงมะระ"),

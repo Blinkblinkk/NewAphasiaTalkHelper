@@ -10,11 +10,45 @@
     <include layout="@layout/toolbar">
     </include>
 
-<EditText
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/et_type"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="20dp"
     android:inputType="textMultiLine"
-    android:background="#ff86af"
-    android:textSize="50sp"/>
+    android:background="#ffffff"
+    android:textSize="45sp"
+    android:maxLines="5"
+    android:lines="5"/>
+
+    <TextView
+        android:id="@+id/btn_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:text=" X "
+        android:textSize="30dp"
+        android:background="#cccbcb"/>
+</RelativeLayout>
+
+    <ImageView
+        android:layout_marginBottom="10dp"
+        android:id="@+id/btn_speech"
+        android:layout_gravity="center"
+        android:src="@mipmap/icon_btnrepeat"
+        android:layout_width="230dp"
+        android:layout_height="78dp" />
+    <ImageView
+        android:id="@+id/btn_home"
+        android:layout_gravity="center"
+        android:src="@mipmap/icon_btnhome"
+        android:layout_width="230dp"
+        android:layout_height="78dp" />
 
 </LinearLayout>
