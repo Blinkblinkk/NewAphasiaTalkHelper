@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="20dp"
         android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,18 +38,28 @@
 
 
     <ImageView
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:layout_gravity="center"
         android:id="@+id/btn_speech"
         android:src="@mipmap/icon_btnrepeat"
-        android:layout_width="230dp"
-        android:layout_height="78dp"
+        android:layout_width="215dp"
+        android:layout_height="72dp"
          />
+
+    <ImageView
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center"
+        android:id="@+id/btn_add_fav"
+        android:src="@mipmap/icon_btnrepeat"
+        android:layout_width="215dp"
+        android:layout_height="72dp"
+        />
+
     <ImageView
         android:layout_gravity="center"
         android:id="@+id/btn_home"
         android:src="@mipmap/icon_btnhome"
-        android:layout_width="230dp"
-        android:layout_height="78dp" />
+        android:layout_width="215dp"
+        android:layout_height="72dp" />
 
 </LinearLayout>

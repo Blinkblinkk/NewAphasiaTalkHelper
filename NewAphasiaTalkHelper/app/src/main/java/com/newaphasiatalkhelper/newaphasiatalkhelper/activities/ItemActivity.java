@@ -8,10 +8,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.FavoriteDao;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.ItemDao;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.helpers.Speaker;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FavoriteModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FeelListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.ListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.WantListModel;
@@ -23,14 +26,18 @@ public class ItemActivity extends AppCompatActivity {
     ListModel model;
     View speak, btnHome;
     TextView title;
-    ImageView img;
+    ImageView img,addFav;
+    FavoriteModel favoriteModel;
+    boolean isFav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
 
+        favoriteModel = new FavoriteModel(this);
         speak = findViewById(R.id.btn_speech);
+        addFav = (ImageView) findViewById(R.id.btn_add_fav);
         title = (TextView) findViewById(R.id.item_text);
         img = (ImageView) findViewById(R.id.item_image);
         btnHome = findViewById(R.id.btn_home);
@@ -59,6 +66,32 @@ public class ItemActivity extends AppCompatActivity {
 
         title.setText(item.speech);
         img.setImageDrawable(getResources().getDrawable(item.icon));
+        FavoriteDao dao = favoriteModel.search(item.speech);
+        if(dao == null){
+            isFav = false;
+            addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnrepeat));
+        }
+        else{
+            isFav = true;
+            addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnhome));
+        }
+        addFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FavoriteDao dao = favoriteModel.search(item.speech);
+                if(isFav){
+                    favoriteModel.remove(dao.id);
+                    addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnrepeat));
+                    Toast.makeText(ItemActivity.this,"ลบออกจากรายการโปรดเรียบร้อย" , Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    favoriteModel.add(item.speech);
+                    addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnhome));
+                    Toast.makeText(ItemActivity.this,"เพิ่มไปยังรายการโปรดเรียบร้อย" , Toast.LENGTH_SHORT).show();
+                }
+                isFav=!isFav;
+            }
+        });
 
         speak.setOnClickListener(new View.OnClickListener() {
             @Override

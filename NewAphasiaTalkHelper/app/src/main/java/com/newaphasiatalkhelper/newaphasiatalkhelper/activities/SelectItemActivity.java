@@ -168,7 +168,7 @@ public class SelectItemActivity extends BaseActivity {
 
                         model.IncrementFrequency(data[pos]);
                         Speaker.speak(data[pos].title);
-                        Toast.makeText(SelectItemActivity.this,"Item selected !!" + pos, Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(SelectItemActivity.this,"Item selected !!" + pos, Toast.LENGTH_SHORT).show();
 
                         Integer nextSubId = data[pos].subId;
                         if(nextSubId == null){

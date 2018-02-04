@@ -12,12 +12,14 @@ import android.widget.TextView;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.FavoriteDao;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.helpers.Speaker;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FavoriteModel;
 
 public class FavoriteActivity extends BaseActivity {
 
     RecyclerView favList;
-    FavoriteModel favoriteModel = new FavoriteModel();
+    FavoriteModel favoriteModel;
+    MyRecycleAdapter adapter;
 
 
     @Override
@@ -27,9 +29,22 @@ public class FavoriteActivity extends BaseActivity {
         //Call function Toolbar
         initToolbar();
 
+        favoriteModel = new FavoriteModel(this);
         favList = (RecyclerView) findViewById(R.id.fav_list);
-        favList.setAdapter(new MyRecycleAdapter());
+        favList.setAdapter(adapter = new MyRecycleAdapter());
         favList.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Speaker.onStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Speaker.onStop();
     }
 
     class MyRecycleAdapter extends RecyclerView.Adapter<MyRecycleAdapter.MyViewHolder> {
@@ -37,8 +52,8 @@ public class FavoriteActivity extends BaseActivity {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LayoutInflater inflater= (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View rootview = inflater.inflate(R.layout.view_fav_sentence,parent,false);
+            LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View rootview = inflater.inflate(R.layout.view_fav_sentence, parent, false);
             return new MyViewHolder(rootview);
         }
 
@@ -53,7 +68,7 @@ public class FavoriteActivity extends BaseActivity {
             return favoriteModel.getAll().length;
         }
 
-        class MyViewHolder extends RecyclerView.ViewHolder{
+        class MyViewHolder extends RecyclerView.ViewHolder {
 
             View btnRemove, btnSpeech;
             TextView sentence;
@@ -65,9 +80,13 @@ public class FavoriteActivity extends BaseActivity {
                 btnSpeech = favSentence.findViewById(R.id.btn_speech);
                 sentence = (TextView) favSentence.findViewById(R.id.sentence);
 
-                /*btnRemove.setOnClickListener(new View.OnClickListener() {
+                btnRemove.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        int pos = getAdapterPosition();
+                        int id = favoriteModel.getAll()[pos].id;
+                        favoriteModel.remove(id);
+                        adapter.notifyDataSetChanged();
 
                     }
                 });
@@ -75,9 +94,11 @@ public class FavoriteActivity extends BaseActivity {
                 btnSpeech.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        int pos = getAdapterPosition();
+                        String sentence = favoriteModel.getAll()[pos].sentence;
+                        Speaker.speak(sentence);
                     }
-                });*/
+                });
             }
         }
     }
