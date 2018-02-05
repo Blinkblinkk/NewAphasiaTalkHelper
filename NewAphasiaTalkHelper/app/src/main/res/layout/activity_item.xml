@@ -7,11 +7,13 @@
     android:layout_height="match_parent"
     tools:context="com.newaphasiatalkhelper.newaphasiatalkhelper.activities.ItemActivity"
     android:orientation="vertical">
+    <include layout="@layout/toolbar">
+    </include>
 
     <LinearLayout
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="20dp"
-        android:padding="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15`dp"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -19,8 +21,8 @@
 
     <ImageView
         android:id="@+id/item_image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="195dp"
+        android:layout_height="195dp"
         android:layout_gravity="center"
         android:src="@mipmap/ic_launcher"/>
 
@@ -30,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="#000000"
-        android:textSize="40dp"
+        android:textSize="35dp"
         android:textAlignment="center"
         android:textStyle="bold"/>
 
@@ -38,12 +40,12 @@
 
 
     <ImageView
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="3dp"
         android:layout_gravity="center"
         android:id="@+id/btn_speech"
         android:src="@mipmap/icon_btnrepeat"
-        android:layout_width="215dp"
-        android:layout_height="72dp"
+        android:layout_width="210dp"
+        android:layout_height="68dp"
          />
 
     <ImageView
@@ -51,15 +53,15 @@
         android:layout_gravity="center"
         android:id="@+id/btn_add_fav"
         android:src="@mipmap/icon_btnrepeat"
-        android:layout_width="215dp"
-        android:layout_height="72dp"
+        android:layout_width="210dp"
+        android:layout_height="68dp"
         />
 
     <ImageView
         android:layout_gravity="center"
         android:id="@+id/btn_home"
         android:src="@mipmap/icon_btnhome"
-        android:layout_width="215dp"
-        android:layout_height="72dp" />
+        android:layout_width="210dp"
+        android:layout_height="68dp" />
 
 </LinearLayout>

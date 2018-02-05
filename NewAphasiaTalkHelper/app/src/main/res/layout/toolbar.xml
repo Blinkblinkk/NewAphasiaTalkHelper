@@ -16,8 +16,8 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/iv_toolbar_logo"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:src="@mipmap/tool_logo"
             android:layout_gravity="center"/>
         </FrameLayout>
