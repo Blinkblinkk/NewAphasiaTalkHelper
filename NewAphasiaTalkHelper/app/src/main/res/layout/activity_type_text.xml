@@ -23,8 +23,8 @@
     android:inputType="textMultiLine"
     android:background="#ffffff"
     android:textSize="45sp"
-    android:maxLines="5"
-    android:lines="5"/>
+    android:maxLines="4"
+    android:lines="4"/>
 
     <TextView
         android:id="@+id/btn_clear"
@@ -41,7 +41,14 @@
         android:layout_marginBottom="10dp"
         android:id="@+id/btn_speech"
         android:layout_gravity="center"
-        android:src="@mipmap/icon_btnrepeat"
+        android:src="@mipmap/icon_btnspeak"
+        android:layout_width="230dp"
+        android:layout_height="78dp" />
+    <ImageView
+        android:layout_marginBottom="10dp"
+        android:id="@+id/btn_add_fav"
+        android:layout_gravity="center"
+        android:src="@mipmap/icon_btnaddfav"
         android:layout_width="230dp"
         android:layout_height="78dp" />
     <ImageView

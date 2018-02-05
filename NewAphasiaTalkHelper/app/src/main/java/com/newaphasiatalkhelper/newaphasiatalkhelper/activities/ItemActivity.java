@@ -1,6 +1,5 @@
 package com.newaphasiatalkhelper.newaphasiatalkhelper.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +17,6 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FavoriteModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FeelListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.ListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.WantListModel;
-import com.newaphasiatalkhelper.newaphasiatalkhelper.views.ItemImage;
 
 public class ItemActivity extends AppCompatActivity {
 
@@ -69,11 +67,11 @@ public class ItemActivity extends AppCompatActivity {
         FavoriteDao dao = favoriteModel.search(item.speech);
         if(dao == null){
             isFav = false;
-            addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnrepeat));
+            addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnaddfav));
         }
         else{
             isFav = true;
-            addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnhome));
+            addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnunfav));
         }
         addFav.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,12 +79,12 @@ public class ItemActivity extends AppCompatActivity {
                 FavoriteDao dao = favoriteModel.search(item.speech);
                 if(isFav){
                     favoriteModel.remove(dao.id);
-                    addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnrepeat));
+                    addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnaddfav));
                     Toast.makeText(ItemActivity.this,"ลบออกจากรายการโปรดเรียบร้อย" , Toast.LENGTH_SHORT).show();
                 }
                 else{
                     favoriteModel.add(item.speech);
-                    addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnhome));
+                    addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnunfav));
                     Toast.makeText(ItemActivity.this,"เพิ่มไปยังรายการโปรดเรียบร้อย" , Toast.LENGTH_SHORT).show();
                 }
                 isFav=!isFav;
