@@ -20,6 +20,24 @@
             android:layout_height="55dp"
             android:src="@mipmap/tool_logo"
             android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/btn_setting"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@mipmap/icon_btnsetting"
+                android:layout_gravity="center_vertical"
+                />
+            <ImageView
+                android:id="@+id/btn_sos"
+                android:layout_width="45dp"
+                android:layout_height="35dp"
+                android:src="@mipmap/icon_btnsos"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="right"
+
+
+                />
         </FrameLayout>
     </android.support.v7.widget.Toolbar>
 
