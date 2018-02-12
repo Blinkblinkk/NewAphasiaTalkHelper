@@ -1,7 +1,8 @@
 package com.newaphasiatalkhelper.newaphasiatalkhelper.activities;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
-import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.FavoriteDao;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.SentenceDao;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.helpers.Speaker;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FavoriteModel;
 
@@ -59,7 +60,7 @@ public class FavoriteActivity extends BaseActivity {
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
-            FavoriteDao item = favoriteModel.getAll()[position];
+            SentenceDao item = favoriteModel.getAll()[position];
             holder.sentence.setText(item.sentence);
         }
 
@@ -83,10 +84,26 @@ public class FavoriteActivity extends BaseActivity {
                 btnRemove.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int pos = getAdapterPosition();
-                        int id = favoriteModel.getAll()[pos].id;
-                        favoriteModel.remove(id);
-                        adapter.notifyDataSetChanged();
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(FavoriteActivity.this);
+                        dialog.setTitle("ยืนยันการลบ")
+                                .setMessage("คุณแน่ใจว่าต้องการลบรายการนี้?")
+                                .setPositiveButton("ลบ", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        int pos = getAdapterPosition();
+                                        int id = favoriteModel.getAll()[pos].id;
+                                        favoriteModel.remove(id);
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                })
+                                .setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                })
+                        .show();
+
 
                     }
                 });

@@ -15,21 +15,31 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 
 public class BaseActivity extends AppCompatActivity {
     protected Toolbar toolbar;
-    View logo;
+    View logo, btnSos;
+
     public void initToolbar(){
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         final Activity a = this;
         logo = findViewById(R.id.iv_toolbar_logo);
-
+        btnSos = findViewById(R.id.btn_sos);
         logo.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
              Intent intent = new Intent(a,MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
+
+        btnSos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BaseActivity.this,SosActivities.class);
                 startActivity(intent);
             }
         });

@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.FavoriteDao;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.SentenceDao;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -25,15 +25,15 @@ public class FavoriteModel {
 
     }
 
-    public FavoriteDao[] getAll(){
+    public SentenceDao[] getAll(){
 
-        List<FavoriteDao> list = db.getAll();
-        FavoriteDao[] arr = new FavoriteDao[list.size()];
+        List<SentenceDao> list = db.getAll();
+        SentenceDao[] arr = new SentenceDao[list.size()];
 
         return list.toArray(arr);
-      //  return new FavoriteDao[]{
-       //        new FavoriteDao("ใช่", 1, 1),
-        //       new FavoriteDao("ไม่ใช่", 2, 2)
+      //  return new SentenceDao[]{
+       //        new SentenceDao("ใช่", 1, 1),
+        //       new SentenceDao("ไม่ใช่", 2, 2)
       //  };
 
 
@@ -46,7 +46,7 @@ public class FavoriteModel {
     public  void incrementFreq(int id){
         db.incrementFreq(id);
     }
-    public FavoriteDao search(String sentence){
+    public SentenceDao search(String sentence){
         return db.search(sentence);
     }
 
@@ -63,8 +63,8 @@ public class FavoriteModel {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL("CREATE TABLE FavoriteDb (id INTEGER PRIMARY KEY, sentence TEXT, freq INTEGER)");
-            db.execSQL("INSERT INTO FavoriteDb VALUES(1,'ใช่',1)");
-            db.execSQL("INSERT INTO FavoriteDb VALUES(2,'ไม่ใช่',1)");
+            db.execSQL("INSERT INTO FavoriteDb VALUES(10000002,'ใช่',1)");
+            db.execSQL("INSERT INTO FavoriteDb VALUES(10000001,'ไม่ใช่',1)");
         }
 
         @Override
@@ -72,19 +72,19 @@ public class FavoriteModel {
 
         }
 
-        public List<FavoriteDao> getAll(){
+        public List<SentenceDao> getAll(){
             SQLiteDatabase db = getWritableDatabase();
             Cursor cursor = db.query("FavoriteDb", null, null, null,null,null,"id");
-            List<FavoriteDao> list = new ArrayList<>();
+            List<SentenceDao> list = new ArrayList<>();
 
             if(cursor!= null){
                 cursor.moveToFirst();
                 while(!cursor.isAfterLast()){
-                    FavoriteDao item = new FavoriteDao();
+                    SentenceDao item = new SentenceDao();
                     item.id = cursor.getInt(0);
                     item.sentence = cursor.getString(1);
                     item.freq = cursor.getInt(2);
-                    list.add(item);
+                    list.add(0,item);
 
                     cursor.moveToNext();
                 }
@@ -97,7 +97,7 @@ public class FavoriteModel {
             sentence = sentence.replace("\n", "");
             SQLiteDatabase db = getWritableDatabase();
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-            int id = (int)(timestamp.getTime() % 100000);
+            int id = (int)(timestamp.getTime() % 10000000);
             Log.i("aaa", "INSERT INTO FavoriteDb VALUES("+id+",'" + sentence + "',1)");
             db.execSQL("INSERT INTO FavoriteDb VALUES("+id+",'" + sentence + "',1)");
         }
@@ -105,9 +105,9 @@ public class FavoriteModel {
             SQLiteDatabase db = getWritableDatabase();
             db.execSQL("UPDATE FavoriteDb SET freq = freq+1 WHERE id = " +id);
         }
-        public FavoriteDao search(String sentence){
+        public SentenceDao search(String sentence){
             sentence = sentence.replace("\n", "");
-            for(FavoriteDao item: getAll()){
+            for(SentenceDao item: getAll()){
                 if(item.sentence.equals(sentence)){
                     return item;
                 }
