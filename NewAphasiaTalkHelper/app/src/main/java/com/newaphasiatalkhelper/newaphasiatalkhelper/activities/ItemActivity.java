@@ -99,7 +99,7 @@ public class ItemActivity extends AppCompatActivity {
         speak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                frequencyModel.incrementFreq(item.speech);
+               // frequencyModel.incrementFreq(item.speech);
                 Speaker.speak(item.speech);
             }
         });

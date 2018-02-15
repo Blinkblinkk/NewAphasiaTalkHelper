@@ -53,7 +53,7 @@ public class TypeTextActivity extends BaseActivity {
                String tts = etType.getText().toString();
                Speaker.speak(tts);
 
-               frequencyModel.incrementFreq(tts);
+              // frequencyModel.incrementFreq(tts);
 
            }
        });

@@ -30,10 +30,10 @@
                 />
             <ImageView
                 android:id="@+id/btn_sos"
-                android:layout_width="45dp"
-                android:layout_height="35dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@mipmap/icon_btnsos"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="right"
 
 
