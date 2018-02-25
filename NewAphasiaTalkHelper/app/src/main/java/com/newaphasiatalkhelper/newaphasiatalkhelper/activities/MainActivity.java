@@ -1,12 +1,17 @@
 package com.newaphasiatalkhelper.newaphasiatalkhelper.activities;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.helpers.Speaker;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 
 public class MainActivity extends BaseActivity {
 
@@ -21,6 +26,13 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         //Call function
         initToolbar();
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE},1);
+        }
+
+        FirebaseModel fb = new FirebaseModel(this);
+        fb.init();
 
         final boolean doLoading = getIntent().getIntExtra("loading", 1) == 1;
 

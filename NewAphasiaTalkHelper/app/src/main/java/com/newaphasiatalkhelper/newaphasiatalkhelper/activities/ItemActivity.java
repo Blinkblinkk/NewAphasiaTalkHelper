@@ -15,6 +15,7 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.ItemDao;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.helpers.Speaker;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FavoriteModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FeelListModel;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FrequencyModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.ListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.WantListModel;
@@ -30,10 +31,14 @@ public class ItemActivity extends AppCompatActivity {
     FrequencyModel frequencyModel;
     boolean isFav;
 
+    FirebaseModel fb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
+
+        fb = new FirebaseModel(this);
 
         frequencyModel = new FrequencyModel(this);
         favoriteModel = new FavoriteModel(this);
@@ -43,6 +48,10 @@ public class ItemActivity extends AppCompatActivity {
         img = (ImageView) findViewById(R.id.item_image);
         btnHome = findViewById(R.id.btn_home);
         mainLayout = (LinearLayout) findViewById(R.id.main_layout);
+
+
+
+
 
 
         int index = getIntent().getIntExtra("index", -1);
@@ -67,6 +76,8 @@ public class ItemActivity extends AppCompatActivity {
         final ItemDao item = subId>0? model.getsub(subId, index): model.get(index);
 
         title.setText(item.speech);
+        fb.enterItemActivity(item.speech);
+
         img.setImageDrawable(getResources().getDrawable(item.icon));
         SentenceDao dao = favoriteModel.search(item.speech);
         if(dao == null){
@@ -101,6 +112,7 @@ public class ItemActivity extends AppCompatActivity {
             public void onClick(View v) {
                // frequencyModel.incrementFreq(item.speech);
                 Speaker.speak(item.speech);
+                fb.speechItemActivity(item.speech);
             }
         });
 

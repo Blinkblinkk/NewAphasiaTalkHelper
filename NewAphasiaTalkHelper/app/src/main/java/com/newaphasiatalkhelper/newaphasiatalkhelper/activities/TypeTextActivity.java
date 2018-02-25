@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.helpers.Speaker;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FavoriteModel;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FrequencyModel;
 
 public class TypeTextActivity extends BaseActivity {
@@ -17,11 +18,17 @@ public class TypeTextActivity extends BaseActivity {
     EditText etType;
     FavoriteModel favoriteModel;
     FrequencyModel frequencyModel;
+
+    FirebaseModel fb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_text);
         initToolbar();
+
+        fb = new FirebaseModel(this);
+        fb.enterTypeTextActivity();
 
         frequencyModel = new FrequencyModel(this);
         favoriteModel = new FavoriteModel(this);
@@ -30,6 +37,7 @@ public class TypeTextActivity extends BaseActivity {
         btnHome = findViewById(R.id.btn_home);
         etType = (EditText) findViewById(R.id.et_type);
         btnAddFav = findViewById(R.id.btn_add_fav);
+
 
 
 
@@ -52,6 +60,7 @@ public class TypeTextActivity extends BaseActivity {
            public void onClick(View v) {
                String tts = etType.getText().toString();
                Speaker.speak(tts);
+               fb.speechTypeTextActivity(tts);
 
               // frequencyModel.incrementFreq(tts);
 
