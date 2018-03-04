@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
@@ -27,6 +30,7 @@ public class SelectItemActivity extends BaseActivity {
     ListModel model;
     int subId;
     String type;
+    int screenWidth;
 
 
     @Override
@@ -68,7 +72,15 @@ public class SelectItemActivity extends BaseActivity {
             }
         });
         adjustPrevNextVisible();
+
+        DisplayMetrics dm = new DisplayMetrics();
+        WindowManager w = (WindowManager) getSystemService(WINDOW_SERVICE);
+        w.getDefaultDisplay().getMetrics(dm);
+        screenWidth = dm.widthPixels;
+        Log.i("aaa","width"+screenWidth);
     }
+
+
 
     protected void onStart(){
         super.onStart();
@@ -90,7 +102,7 @@ public class SelectItemActivity extends BaseActivity {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -131,6 +143,7 @@ public class SelectItemActivity extends BaseActivity {
             LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View rootView = inflater.inflate(R.layout.box_item, parent, false);
 
+            rootView.getLayoutParams().width = screenWidth/2;
             return new MyViewHolder(rootView);
 
         }
