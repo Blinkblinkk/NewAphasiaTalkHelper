@@ -20,7 +20,7 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FrequencyModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.ListModel;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.WantListModel;
 
-public class ItemActivity extends AppCompatActivity {
+public class ItemActivity extends BaseActivity {
 
     LinearLayout mainLayout;
     ListModel model;
@@ -37,6 +37,7 @@ public class ItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item);
+        initToolbar();
 
         fb = new FirebaseModel(this);
 

@@ -2,8 +2,11 @@ package com.newaphasiatalkhelper.newaphasiatalkhelper.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.QuickContactBadge;
 import android.widget.Toast;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
@@ -18,6 +21,7 @@ public class TypeTextActivity extends BaseActivity {
     EditText etType;
     FavoriteModel favoriteModel;
     FrequencyModel frequencyModel;
+    View area;
 
     FirebaseModel fb;
 
@@ -37,8 +41,15 @@ public class TypeTextActivity extends BaseActivity {
         btnHome = findViewById(R.id.btn_home);
         etType = (EditText) findViewById(R.id.et_type);
         btnAddFav = findViewById(R.id.btn_add_fav);
+        area = findViewById(R.id.area);
 
 
+        area.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+            }
+        });
 
 
         btnClear.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +93,12 @@ public class TypeTextActivity extends BaseActivity {
             }
         });
 
+    }
+
+    void  hideKeyboard(View view){
+
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(),0);
     }
 
     @Override
