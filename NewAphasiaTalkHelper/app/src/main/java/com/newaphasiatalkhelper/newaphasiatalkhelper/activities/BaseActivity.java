@@ -15,10 +15,11 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 
 public class BaseActivity extends AppCompatActivity {
     protected Toolbar toolbar;
-    View logo, btnSos;
+    View logo, btnSos, userProfile;
 
-    public void initToolbar(){
+    public void initToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        userProfile = findViewById(R.id.btn_user_profile);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -26,11 +27,11 @@ public class BaseActivity extends AppCompatActivity {
         final Activity a = this;
         logo = findViewById(R.id.iv_toolbar_logo);
         btnSos = findViewById(R.id.btn_sos);
-        logo.setOnClickListener(new View.OnClickListener(){
+        logo.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-             Intent intent = new Intent(a,MainActivity.class);
+                Intent intent = new Intent(a, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -39,10 +40,22 @@ public class BaseActivity extends AppCompatActivity {
         btnSos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BaseActivity.this,SosActivities.class);
+                Intent intent = new Intent(BaseActivity.this, SosActivities.class);
                 startActivity(intent);
             }
         });
+
+        userProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BaseActivity.this, UserHome.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+        public void hideUserProfileIcon(){
+            userProfile.setVisibility(View.GONE);
     }
 
 

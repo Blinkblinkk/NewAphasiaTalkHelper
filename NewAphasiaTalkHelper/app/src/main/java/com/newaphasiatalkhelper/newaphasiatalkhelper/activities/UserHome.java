@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 
-public class UserHome extends AppCompatActivity {
+public class UserHome extends BaseActivity {
 
 
 
@@ -13,5 +13,7 @@ public class UserHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
+        initToolbar();
+        hideUserProfileIcon();
     }
 }
