@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="symptom_array">
+        <item>อัมพฤกษ์</item>
+        <item>พยาธิสภาพที่สมอง</item>
+        <item>พยาธิสภาพที่กล่องเสียง</item>
+        <item>เส้นประสาทเสียงบาดเจ็บ</item>
+        <item>เป็นใบ้</item>
+        <item>ผู้ป่วยเจาะคอ</item>
+        <item>มะเร็งช่องปากและคอ</item>
+        <item>อื่นๆ</item>
+    </string-array>
+</resources>
