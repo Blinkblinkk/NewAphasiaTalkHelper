@@ -77,20 +77,15 @@
                 android:padding="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="อาการ / ชื่อโรค "
+                android:text="โรค/อาการ "
                 android:textSize="20dp"/>
-
             <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
                 android:spinnerMode="dropdown"
                 android:entries="@array/symptom_array"
                 >
             </Spinner>
-
-
-
-
 
             <TextView
                 android:layout_width="wrap_content"
@@ -99,10 +94,76 @@
                 android:textSize="30dp"/>
 
             <TextView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ชื่อจริง"
+                android:textSize="20dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="นามสกุล"
+                android:textSize="20dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="เบอร์โทร"
+                android:textSize="20dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ข้อมูลโรงพยาบาล"
                 android:textSize="30dp"/>
+            <TextView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ชื่อโรงพยาบาล"
+                android:textSize="20dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ชื่อแพทย์"
+                android:textSize="20dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="เลขที่โรงพยาบาล"
+                android:textSize="20dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:button="@drawable/chk_selector_image"
+                android:text="ข้าพเจ้ายินยอมให้มีการเก็บข้อมูลสถิติการใช้งานเพื่อเป็นประโยชน์ในการนำไปพัฒนาโดยจะไม่มีการเก็บข้อมูลส่วนตัวใดๆ"
+                android:textColor="#888888"/>
+
 
 
         </LinearLayout>
