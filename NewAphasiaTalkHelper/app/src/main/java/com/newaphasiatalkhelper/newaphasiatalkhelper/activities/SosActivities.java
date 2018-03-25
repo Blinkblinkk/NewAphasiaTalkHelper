@@ -10,19 +10,22 @@ import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 
 public class SosActivities extends AppCompatActivity {
 
     View btnStop;
     VideoView vv;
     MediaPlayer mediaPlayer;
-
+    FirebaseModel fb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fb = new FirebaseModel(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sos_activities);
         mediaPlayer = MediaPlayer.create(this,R.raw.sirensound);
         mediaPlayer.start();
+        fb.sosActivity();
 
 
 

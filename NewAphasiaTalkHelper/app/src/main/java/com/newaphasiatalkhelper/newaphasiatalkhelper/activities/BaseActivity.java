@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 
 /**
  * Created by Tum on 10/29/2017 AD.
@@ -16,8 +17,10 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 public class BaseActivity extends AppCompatActivity {
     protected Toolbar toolbar;
     View logo, btnSos, userProfile;
+    FirebaseModel fb;
 
     public void initToolbar() {
+        fb = new FirebaseModel(this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         userProfile = findViewById(R.id.btn_user_profile);
 
@@ -34,6 +37,7 @@ public class BaseActivity extends AppCompatActivity {
                 Intent intent = new Intent(a, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                fb.logoaphasiaActivity();
             }
         });
 

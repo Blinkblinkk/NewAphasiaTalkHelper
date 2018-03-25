@@ -97,11 +97,13 @@ public class ItemActivity extends BaseActivity {
                     favoriteModel.remove(dao.id);
                     addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnaddfav));
                     Toast.makeText(ItemActivity.this,"ลบออกจากรายการโปรดเรียบร้อย" , Toast.LENGTH_SHORT).show();
+                    fb.deletefavItemActivity(item.speech);
                 }
                 else{
                     favoriteModel.add(item.speech);
                     addFav.setImageDrawable(getResources().getDrawable(R.mipmap.icon_btnunfav));
                     Toast.makeText(ItemActivity.this,"เพิ่มไปยังรายการโปรดเรียบร้อย" , Toast.LENGTH_SHORT).show();
+                    fb.addfavItemActivity(item.speech);
                 }
                 isFav=!isFav;
             }
@@ -121,11 +123,13 @@ public class ItemActivity extends BaseActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fb.backhomeActivity();
                 Speaker.speak("หน้าหลัก");
                 Intent intent = new Intent(ItemActivity.this, MainActivity.class);
                 intent.putExtra("loading",0);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+
             }
         });
     }

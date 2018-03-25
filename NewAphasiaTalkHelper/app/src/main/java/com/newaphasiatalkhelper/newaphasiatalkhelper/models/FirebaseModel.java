@@ -19,6 +19,7 @@ import java.util.Map;
  * Created by Tum on 2/25/2018 AD.
  */
 
+
 public class FirebaseModel {
     private Context mContext;
     private DatabaseReference db = FirebaseDatabase.getInstance().getReference();
@@ -46,8 +47,8 @@ public class FirebaseModel {
         }
 
         Map<String,Object> data = new HashMap<>();
-        data.put("action","enter_item_activity");
-        data.put("sentence",sentence);
+        data.put("action","เลือกข้อความ");
+        data.put("sentence","เลือกข้อความ: "+sentence);
         data.put("at",getCurrentTime());
 
         DatabaseReference ref = db.child("user_stat").child(id).push();
@@ -69,8 +70,59 @@ public class FirebaseModel {
         }
 
         Map<String,Object> data = new HashMap<>();
-        data.put("action","speech_item_activity");
-        data.put("sentence",sentence);
+        data.put("action","ออกเสียงข้อความที่เลือก");
+        data.put("sentence","ออกเสียงข้อความที่เลือก: "+sentence);
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+
+    public void addfavItemActivity(String sentence){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","เพิ่มข้อความที่เลือกไปยังรายการโปรด");
+        data.put("sentence","เพิ่มข้อความที่เลือกไปยังรายการโปรด: "+sentence);
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+
+    public void deletefavItemActivity(String sentence){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","ลบข้อความที่เลือกออกจากรายการโปรด");
+        data.put("sentence","ลบข้อความที่เลือกออกจากรายการโปรด: "+sentence);
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+
+    public void backhomeActivity(){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","กลับหน้าหลัก");
+        data.put("sentence","");
         data.put("at",getCurrentTime());
 
         DatabaseReference ref = db.child("user_stat").child(id).push();
@@ -86,7 +138,7 @@ public class FirebaseModel {
         }
 
         Map<String,Object> data = new HashMap<>();
-        data.put("action","enter_typetext_activity");
+        data.put("action","พิมข้อความ");
         data.put("sentence","");
         data.put("at",getCurrentTime());
 
@@ -96,14 +148,131 @@ public class FirebaseModel {
         Log.i("aaa", data.toString());
         ref.updateChildren(data);
     }
+
+    public void clearTypeTextActivity(){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","ลบข้อความที่พิมทั้งหมด");
+        data.put("sentence","");
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+
     public void speechTypeTextActivity(String sentence){
         if (id == null){
             return;
         }
 
         Map<String,Object> data = new HashMap<>();
-        data.put("action","speech_typetext_activity");
-        data.put("sentence",sentence);
+        data.put("action","ออกเสียงข้อความที่พิม");
+        data.put("sentence","ออกเสียงข้อความที่พิม: "+sentence);
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+    public void addfavTypeTextActivity(String sentence){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","เพิ่มข้อความที่เลือกไปยังรายการโปรด");
+        data.put("sentence","เพิ่มข้อความที่เลือกไปยังรายการโปรด: "+sentence);
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+
+    public void speechfavoriteActivity(String sentence){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","ออกเสียงข้อความจากรายการโปรด");
+        data.put("sentence","ออกเสียงข้อความจากรายการโปรด: "+sentence);
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+
+    public void deletefavoriteActivity(String sentence){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","ลบข้อความจากรายการโปรด");
+        data.put("sentence","ลบข้อความจากรายการโปรด: "+sentence);
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+
+    public void sosActivity(){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","sos button");
+        data.put("sentence","");
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+    public void userhomeActivity(){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","user profile button");
+        data.put("sentence","");
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+    public void logoaphasiaActivity(){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","logo aphasia button");
+        data.put("sentence","");
         data.put("at",getCurrentTime());
 
         DatabaseReference ref = db.child("user_stat").child(id).push();

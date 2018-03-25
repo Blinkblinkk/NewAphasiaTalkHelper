@@ -4,16 +4,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 
 public class UserHome extends BaseActivity {
-
+    FirebaseModel fb;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fb = new FirebaseModel(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
         initToolbar();
         hideUserProfileIcon();
+        fb.userhomeActivity();
     }
 }

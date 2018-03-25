@@ -15,12 +15,14 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.dao.SentenceDao;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.helpers.Speaker;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FavoriteModel;
+import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 
 public class FavoriteActivity extends BaseActivity {
 
     RecyclerView favList;
     FavoriteModel favoriteModel;
     MyRecycleAdapter adapter;
+    FirebaseModel fb;
 
 
     @Override
@@ -29,7 +31,7 @@ public class FavoriteActivity extends BaseActivity {
         setContentView(R.layout.activity_favorite);
         //Call function Toolbar
         initToolbar();
-
+        fb = new FirebaseModel(this);
         favoriteModel = new FavoriteModel(this);
         favList = (RecyclerView) findViewById(R.id.fav_list);
         favList.setAdapter(adapter = new MyRecycleAdapter());
@@ -93,6 +95,7 @@ public class FavoriteActivity extends BaseActivity {
                                         int pos = getAdapterPosition();
                                         int id = favoriteModel.getAll()[pos].id;
                                         favoriteModel.remove(id);
+                                        fb.deletefavoriteActivity(favoriteModel.getAll()[pos].sentence);
                                         adapter.notifyDataSetChanged();
                                     }
                                 })
@@ -114,6 +117,7 @@ public class FavoriteActivity extends BaseActivity {
                         int pos = getAdapterPosition();
                         String sentence = favoriteModel.getAll()[pos].sentence;
                         Speaker.speak(sentence);
+                        fb.speechfavoriteActivity(sentence);
                     }
                 });
             }

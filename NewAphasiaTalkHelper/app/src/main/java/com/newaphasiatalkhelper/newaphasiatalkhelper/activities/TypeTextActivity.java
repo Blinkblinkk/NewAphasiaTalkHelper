@@ -51,13 +51,13 @@ public class TypeTextActivity extends BaseActivity {
             }
         });
 
-
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 etType.setText("");
             }
         });
+        fb.clearTypeTextActivity();
 
        btnHome.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -65,6 +65,7 @@ public class TypeTextActivity extends BaseActivity {
                finish();
            }
        });
+       fb.backhomeActivity();
 
        btnSpeech.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -86,9 +87,11 @@ public class TypeTextActivity extends BaseActivity {
                 {
                 favoriteModel.add(sentence);
                     Toast.makeText(TypeTextActivity.this,"เพิ่มไปยังรายการโปรดเรียบร้อย" , Toast.LENGTH_SHORT).show();
+                    fb.addfavTypeTextActivity(sentence);
                 }
                 else{
                     Toast.makeText(TypeTextActivity.this,"มีในรายการโปรดอยู่แล้ว" , Toast.LENGTH_SHORT).show();
+                    fb.addfavTypeTextActivity(sentence);
                 }
             }
         });
