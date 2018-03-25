@@ -222,8 +222,8 @@ public class FirebaseModel {
         }
 
         Map<String,Object> data = new HashMap<>();
-        data.put("action","ลบข้อความจากรายการโปรด");
-        data.put("sentence","ลบข้อความจากรายการโปรด: "+sentence);
+        data.put("action","ลบข้อความในรายการโปรด");
+        data.put("sentence","ลบข้อความในรายการโปรด: "+sentence);
         data.put("at",getCurrentTime());
 
         DatabaseReference ref = db.child("user_stat").child(id).push();
