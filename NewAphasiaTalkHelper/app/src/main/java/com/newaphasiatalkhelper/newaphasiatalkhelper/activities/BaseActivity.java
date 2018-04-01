@@ -16,13 +16,14 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 
 public class BaseActivity extends AppCompatActivity {
     protected Toolbar toolbar;
-    View logo, btnSos, userProfile;
+    View logo, btnSos, userProfile, goHome;
     FirebaseModel fb;
 
     public void initToolbar() {
         fb = new FirebaseModel(this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         userProfile = findViewById(R.id.btn_user_profile);
+        goHome = findViewById(R.id.btn_gohome);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -31,6 +32,17 @@ public class BaseActivity extends AppCompatActivity {
         logo = findViewById(R.id.iv_toolbar_logo);
         btnSos = findViewById(R.id.btn_sos);
         logo.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(a, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                fb.logoaphasiaActivity();
+            }
+        });
+
+        goHome.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {

@@ -180,11 +180,12 @@ public class SelectItemActivity extends BaseActivity {
                         if(!data[pos].isOk()) return;
 
                         model.IncrementFrequency(data[pos]);
-                        Speaker.speak(data[pos].title);
+                        //Speaker.speak(data[pos].title);
                        // Toast.makeText(SelectItemActivity.this,"Item selected !!" + pos, Toast.LENGTH_SHORT).show();
 
                         Integer nextSubId = data[pos].subId;
                         if(nextSubId == null){
+                            Speaker.speak(data[pos].speech);
                         Intent intent = new Intent(SelectItemActivity.this, ItemActivity.class);
                         intent.putExtra("index", pos);
                         intent.putExtra("subId", subId);
@@ -192,6 +193,7 @@ public class SelectItemActivity extends BaseActivity {
                         startActivity(intent);
                         }
                         else{
+                            Speaker.speak(data[pos].title);
                             Intent intent = new Intent(SelectItemActivity.this, SelectItemActivity.class);
                             intent.putExtra("index", pos);
                             intent.putExtra("subId", nextSubId);
