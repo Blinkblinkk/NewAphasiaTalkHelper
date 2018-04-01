@@ -79,13 +79,40 @@
                 android:layout_height="wrap_content"
                 android:text="โรค/อาการ "
                 android:textSize="20dp"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#dddddd">
             <Spinner
-                android:layout_width="250dp"
+                android:id="@+id/symptom"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:spinnerMode="dropdown"
                 android:entries="@array/symptom_array"
                 >
             </Spinner>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/symptom_other"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            <TextView
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*โปรดระบุ"
+                android:textSize="20dp"
+                android:layout_gravity="top"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"/>
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"

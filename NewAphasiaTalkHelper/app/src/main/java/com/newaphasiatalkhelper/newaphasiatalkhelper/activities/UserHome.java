@@ -2,12 +2,14 @@ package com.newaphasiatalkhelper.newaphasiatalkhelper.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Spinner;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 
 public class UserHome extends BaseActivity {
     FirebaseModel fb;
+    Spinner symptom;
 
 
     @Override
@@ -18,5 +20,6 @@ public class UserHome extends BaseActivity {
         initToolbar();
         hideUserProfileIcon();
         fb.userhomeActivity();
+        symptom = (Spinner) findViewById(R.id.symptom);
     }
 }
