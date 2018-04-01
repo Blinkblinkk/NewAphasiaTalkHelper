@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="symptom_array">
-        <item> - - - - - - - - - </item>
+        <item> ตัวเลือก </item>
         <item>อัมพฤกษ์ </item>
         <item>พยาธิสภาพที่สมอง</item>
         <item>พยาธิสภาพที่กล่องเสียง</item>
