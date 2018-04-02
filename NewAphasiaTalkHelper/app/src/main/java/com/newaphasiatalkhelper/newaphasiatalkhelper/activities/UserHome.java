@@ -2,14 +2,18 @@ package com.newaphasiatalkhelper.newaphasiatalkhelper.activities;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.newaphasiatalkhelper.newaphasiatalkhelper.R;
 import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
@@ -30,6 +34,9 @@ public class UserHome extends BaseActivity {
         initToolbar();
         hideUserProfileIcon();
         fb.userhomeActivity();
+
+        final String[] symptom_array = getResources().getStringArray(R.array.symptom_array);
+
         symptom = (Spinner) findViewById(R.id.symptom);
         symptomOther = (LinearLayout) findViewById(R.id.symptom_other);
         save = findViewById(R.id.btnsave);
@@ -57,7 +64,7 @@ public class UserHome extends BaseActivity {
 
         symptom.setSelection(pref.getInt("user-sypmtom",0));
 
-        if(pref.getInt("user-sypmtom",0) == 8){
+        if(pref.getInt("user-sypmtom",0) == symptom_array.length-1){
             symptomOther.setVisibility(View.VISIBLE);
         }
         else{
@@ -67,7 +74,7 @@ public class UserHome extends BaseActivity {
         symptom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 8 ){
+                if(position == symptom_array.length-1 ){
                     symptomOther.setVisibility(View.VISIBLE);
                 }
                 else symptomOther.setVisibility(View.GONE);
@@ -81,7 +88,7 @@ public class UserHome extends BaseActivity {
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 SharedPreferences.Editor editor=getSharedPreferences("user_info", MODE_PRIVATE).edit();
                 editor.putString("user-firstname",firstname.getText().toString());
                 editor.putString("user-surname",surname.getText().toString());
@@ -94,11 +101,26 @@ public class UserHome extends BaseActivity {
                 editor.putInt("user-symptom", symptom.getSelectedItemPosition());
 
                 editor.commit();
+                String age2 =   age.getText().toString();
+                String gender2 =   gender.getText().toString();
+                String symptom2 = symptom.getSelectedItemPosition() == symptom_array.length - 1 ?
+                        symptomother.getText().toString() :
+                        symptom_array[symptom.getSelectedItemPosition()];
+                fb.putUserInfo(age2,gender2,symptom2);
+
+                View v = UserHome.this.getCurrentFocus();
+                if(v != null){
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+                }
                 new AlertDialog.Builder(UserHome.this)
                         .setTitle("บันทึกเรียบร้อย!")
                         .setMessage("ข้อมูลของคุณถูกบันทึกเรียบร้อยแล้ว")
+                        .setPositiveButton("ตกลง", null)
                         .show();
             }
         });
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 }

@@ -26,6 +26,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         //Call function
         initToolbar();
+        startActivity(new Intent(this,WelcomeActivity.class));
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE},1);

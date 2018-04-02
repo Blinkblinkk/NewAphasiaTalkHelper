@@ -281,4 +281,35 @@ public class FirebaseModel {
         Log.i("aaa", data.toString());
         ref.updateChildren(data);
     }
+
+    public void gohomefromToolbarActivity(){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("action","Home botton at toolbar");
+        data.put("sentence","");
+        data.put("at",getCurrentTime());
+
+        DatabaseReference ref = db.child("user_stat").child(id).push();
+        //Map<String,Object> newRow = new HashMap<>();
+        //newRow.put(ref.getKey(),data);
+        Log.i("aaa", data.toString());
+        ref.updateChildren(data);
+    }
+
+    public void putUserInfo(String age, String gender, String symptom){
+        if (id == null){
+            return;
+        }
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("age",age);
+        data.put("gender",gender);
+        data.put("symptom",symptom);
+
+        db.child("user_info").child(id).setValue(data);
+
+    }
 }
