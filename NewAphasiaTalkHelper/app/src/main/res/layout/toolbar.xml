@@ -16,8 +16,8 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/iv_toolbar_logo"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@mipmap/tool_logo"
             android:layout_gravity="center"/>
 
@@ -29,16 +29,20 @@
 
                <ImageView
                    android:id="@+id/btn_gohome"
-                   android:layout_width="60dp"
-                   android:layout_height="62dp"
-                   android:src="@mipmap/ic_launcher"
+                   android:layout_width="52dp"
+                   android:layout_height="52dp"
+                   android:layout_marginTop="3dp"
+                   android:layout_marginRight="3dp"
+                   android:src="@mipmap/icon_gohome"
                    />
 
                <ImageView
                    android:id="@+id/btn_user_profile"
-                   android:layout_width="60dp"
-                   android:layout_height="62dp"
+                   android:layout_width="52dp"
+                   android:layout_height="52dp"
+                   android:layout_marginTop="3dp"
                    android:src="@mipmap/icon_btnuser"
+
                    />
 
            </LinearLayout>
