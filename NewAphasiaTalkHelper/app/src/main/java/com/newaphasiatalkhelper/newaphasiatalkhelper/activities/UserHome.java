@@ -66,9 +66,9 @@ public class UserHome extends BaseActivity {
         email.setText(pref.getString("carer-email",""));
         telephone.setText(pref.getString("carer-telephone",""));
         accept.setChecked(pref.getInt("allow-track", 1) == 1);
-        Log.i("aaa", "allow accept 1= " + pref.getInt("allow-track", 1));
+        Log.i("aaa", "pref.getInt(\"user-sypmtom\",0)= " + pref.getInt("user-sypmtom",0));
 
-        symptom.setSelection(pref.getInt("user-sypmtom",0));
+        symptom.setSelection(pref.getInt("user-symptom",0));
 
         if(pref.getInt("user-sypmtom",0) == symptom_array.length-1){
             symptomOther.setVisibility(View.VISIBLE);
@@ -106,7 +106,7 @@ public class UserHome extends BaseActivity {
                 editor.putString("carer-telephone",telephone.getText().toString());
                 editor.putInt("user-symptom", symptom.getSelectedItemPosition());
                 editor.putInt("allow-track", accept.isChecked() ? 1 : 0);
-                Log.i("aaa", "accept check 2= " + accept.isChecked());
+                Log.i("aaa", "symptom.getSelectedItemPosition()= " + symptom.getSelectedItemPosition() );
 
                 editor.commit();
                 String age2 =   age.getText().toString();
