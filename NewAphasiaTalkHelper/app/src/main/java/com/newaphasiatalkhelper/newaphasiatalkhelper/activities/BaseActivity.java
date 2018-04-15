@@ -75,4 +75,9 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        fb.init();
+    }
 }

@@ -19,6 +19,7 @@ public class MainActivity extends BaseActivity {
     View viewIFeel;
     View viewTypeText;
     View viewFav;
+    static boolean welcome = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,12 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         //Call function
         initToolbar();
-        startActivity(new Intent(this,WelcomeActivity.class));
+
+        if (welcome) {
+
+            startActivity(new Intent(this, WelcomeActivity.class));
+            welcome = false;
+        }
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE},1);

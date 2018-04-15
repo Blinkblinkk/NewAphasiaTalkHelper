@@ -62,7 +62,7 @@ public class FavoriteModel {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL("CREATE TABLE FavoriteDb (id INTEGER PRIMARY KEY, sentence TEXT, freq INTEGER)");
+            db.execSQL("CREATE TABLE FavoriteDb (id INTEGER PRIMARY KEY AUTOINCREMENT, sentence TEXT, freq INTEGER)");
             db.execSQL("INSERT INTO FavoriteDb VALUES(10000002,'ใช่',1)");
             db.execSQL("INSERT INTO FavoriteDb VALUES(10000001,'ไม่ใช่',1)");
         }
@@ -98,8 +98,8 @@ public class FavoriteModel {
             SQLiteDatabase db = getWritableDatabase();
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             int id = (int)(timestamp.getTime() % 10000000);
-            Log.i("aaa", "INSERT INTO FavoriteDb VALUES("+id+",'" + sentence + "',1)");
-            db.execSQL("INSERT INTO FavoriteDb VALUES("+id+",'" + sentence + "',1)");
+            Log.i("aaa", "INSERT INTO FavoriteDb VALUES(NULL,'" + sentence + "',1)");
+            db.execSQL("INSERT INTO FavoriteDb VALUES(NULL,'" + sentence + "',1)");
         }
         public  void incrementFreq(int id){
             SQLiteDatabase db = getWritableDatabase();

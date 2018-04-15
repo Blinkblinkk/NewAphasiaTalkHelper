@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -24,6 +26,7 @@ public class UserHome extends BaseActivity {
     LinearLayout symptomOther;
     View save;
     EditText firstname, surname,nickname,age,gender,symptomother,email,telephone;
+    CheckBox accept;
 
 
     @Override
@@ -40,6 +43,7 @@ public class UserHome extends BaseActivity {
         symptom = (Spinner) findViewById(R.id.symptom);
         symptomOther = (LinearLayout) findViewById(R.id.symptom_other);
         save = findViewById(R.id.btnsave);
+        accept = (CheckBox) findViewById(R.id.accept);
 
         firstname = (EditText) findViewById(R.id.firstname);
         surname = (EditText) findViewById(R.id.surname);
@@ -61,6 +65,8 @@ public class UserHome extends BaseActivity {
         symptomother.setText(pref.getString("user-symptomother",""));
         email.setText(pref.getString("carer-email",""));
         telephone.setText(pref.getString("carer-telephone",""));
+        accept.setChecked(pref.getInt("allow-track", 1) == 1);
+        Log.i("aaa", "allow accept 1= " + pref.getInt("allow-track", 1));
 
         symptom.setSelection(pref.getInt("user-sypmtom",0));
 
@@ -99,6 +105,8 @@ public class UserHome extends BaseActivity {
                 editor.putString("carer-email",email.getText().toString());
                 editor.putString("carer-telephone",telephone.getText().toString());
                 editor.putInt("user-symptom", symptom.getSelectedItemPosition());
+                editor.putInt("allow-track", accept.isChecked() ? 1 : 0);
+                Log.i("aaa", "accept check 2= " + accept.isChecked());
 
                 editor.commit();
                 String age2 =   age.getText().toString();
