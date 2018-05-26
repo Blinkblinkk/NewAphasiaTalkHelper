@@ -146,7 +146,7 @@ public class FirebaseModel {
         }
 
         Map<String, Object> data = new HashMap<>();
-        data.put("action", "พิมข้อความ");
+        data.put("action", "พิมพ์ข้อความ");
         data.put("sentence", "");
         data.put("at", getCurrentTime());
 
@@ -163,7 +163,7 @@ public class FirebaseModel {
         }
 
         Map<String, Object> data = new HashMap<>();
-        data.put("action", "ลบข้อความที่พิมทั้งหมด");
+        data.put("action", "ลบข้อความที่พิมพ์ทั้งหมด");
         data.put("sentence", "");
         data.put("at", getCurrentTime());
 
@@ -180,8 +180,8 @@ public class FirebaseModel {
         }
 
         Map<String, Object> data = new HashMap<>();
-        data.put("action", "ออกเสียงข้อความที่พิม");
-        data.put("sentence", "ออกเสียงข้อความที่พิม: " + sentence);
+        data.put("action", "ออกเสียงข้อความที่พิมพ์");
+        data.put("sentence", "ออกเสียงข้อความที่พิมพ์: " + sentence);
         data.put("at", getCurrentTime());
 
         DatabaseReference ref = db.child("user_stat").child(id).push();
