@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.newaphasiatalkhelper.newaphasiatalkhelper.activities.InfoActivity"
+    android:orientation="vertical">
+
+<include layout="@layout/toolbar"/>
+
+    <TextView
+        android:text="วีดีโอสอนการใช้งานเบื้องต้น"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <VideoView
+
+        android:id="@+id/vdo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        />
+
+
+
+
+
+</LinearLayout>

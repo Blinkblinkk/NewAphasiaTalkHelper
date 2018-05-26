@@ -16,7 +16,7 @@ import com.newaphasiatalkhelper.newaphasiatalkhelper.models.FirebaseModel;
 
 public class BaseActivity extends AppCompatActivity {
     protected Toolbar toolbar;
-    View logo, btnSos, userProfile, goHome;
+    View logo, btnSos, userProfile, goHome, btnInfo;
     FirebaseModel fb;
 
     public void initToolbar() {
@@ -31,6 +31,7 @@ public class BaseActivity extends AppCompatActivity {
         final Activity a = this;
         logo = findViewById(R.id.iv_toolbar_logo);
         btnSos = findViewById(R.id.btn_sos);
+        btnInfo = findViewById(R.id.btn_info);
         logo.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -60,6 +61,15 @@ public class BaseActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BaseActivity.this, InfoActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         userProfile.setOnClickListener(new View.OnClickListener() {
             @Override

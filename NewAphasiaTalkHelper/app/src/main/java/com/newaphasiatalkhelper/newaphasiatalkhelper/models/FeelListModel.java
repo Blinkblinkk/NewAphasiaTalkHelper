@@ -70,6 +70,4 @@ public class FeelListModel extends ListModel{
                 new ItemDao(200119, "เท้า", R.mipmap.feel_pain_feet).speech("ฉันรู้สึกปวดเท้า"),
                 new ItemDao(200120, null, null),});
     }
-
-
 }

@@ -23,11 +23,10 @@
         <activity android:name=".activities.TypeTextActivity" />
         <activity android:name=".activities.FavoriteActivity" />
         <activity android:name=".activities.ItemActivity" />
-        <activity android:name=".activities.WelcomeActivity">
-
-        </activity>
+        <activity android:name=".activities.WelcomeActivity"></activity>
         <activity android:name=".activities.SosActivities" />
-        <activity android:name=".activities.UserHome"></activity>
+        <activity android:name=".activities.UserHome" />
+        <activity android:name=".activities.InfoActivity"></activity>
     </application>
 
 </manifest>
